@@ -1,39 +1,74 @@
 import React, { Component } from 'react';
+import Visuals from './containers/Visuals/Visuals';
+import Word from './containers/Word/Word';
+import Input from './containers/Input/Input';
+import Help from './containers/Help/Help';
 import './App.css';
 
-class App extends Component {
+const HangmanContext = React.createContext();
+
+class HangmanProvider extends Component {
+    state = {
+        gameOver: false,        // boolean
+        gameStatus: 'init',     // init / won / lost
+        letters: {              // init / hit / mis
+          a: 'init',
+          b: 'init',
+          c: 'init',
+          d: 'init',
+          e: 'init',
+          f: 'init',
+          g: 'init',
+          h: 'init',
+          i: 'init',
+          j: 'init',
+          k: 'init',
+          l: 'init',
+          m: 'init',
+          n: 'init',
+          o: 'init',
+          p: 'init',
+          q: 'init',
+          r: 'init',
+          s: 'init',
+          t: 'init',
+          u: 'init',
+          v: 'init',
+          w: 'init',
+          x: 'init',
+          y: 'init',
+          z: 'init',
+        },
+        wrongLetterCount: 0,        // 0-7
+        unknownLetterCount: null,   // total number of unknown letters in word
+        selectedWord: null,         // word from library
+        helpShown: false            // boolean
+    }
+
     render() {
-        return (
-            <div className="App">
-                <div className="visuals">
-                    <div className="title">Titel/Status Messages</div>
-                    <div className="image">Images</div>
-                    <div className="text_attempts_left">Text Attempts left</div>
-                    <div className="help_button">Help Button</div>
-                    <div className="lets_play">Let's Play Animation</div>
-                </div>
-                <div className="word">
-                    <div className="word_letter">W</div>
-                    <div className="word_letter">O</div>
-                    <div className="word_letter">R</div>
-                    <div className="word_letter">D</div>
-                </div>
-                <div className="input">
-                    <div className="letters">
-                        <div className="letter">A</div>
-                        <div className="letter">B</div>
-                        <div className="letter">C</div>
-                        <div className="letter">D</div>
-                        <div className="letter">E</div>
-                    </div>
-                    <div className="new_word">New Word</div>
-                </div>
-                <div className="help">
-                    <div className="help_content">help text comes here</div>
-                </div>
-            </div>
+        return(
+            <HangmanContext.Provider value={{state: this.state}}>
+                {this.props.children}
+            </HangmanContext.Provider>
         );
     }
 }
 
+class App extends Component {
+    render() {
+        return (
+        <HangmanProvider>
+            <div className="App">
+                <Visuals />
+                <Word />
+                <div className="temp">----</div>
+                <Input />
+                <Help />
+            </div>
+        </HangmanProvider>
+        );
+    }
+}
+
+export {HangmanContext};
 export default App;
