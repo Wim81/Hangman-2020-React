@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { HangmanContext } from '../../App';
+import InputLetter from '../../components/InputLetter/InputLetter';
+import '../../style.css';
 
 class Input extends Component {
 
@@ -6,11 +9,18 @@ class Input extends Component {
         return (
             <div className="input">
                 <div className="letters">
-                    <div className="letter">A</div>
-                    <div className="letter">B</div>
-                    <div className="letter">C</div>
-                    <div className="letter">D</div>
-                    <div className="letter">E</div>
+                    <HangmanContext.Consumer>
+                        {(context) => {
+                            const letters = context.state.letters;
+                            console.log(letters);
+                            const allLetters = letters.map( letter => (
+                                <InputLetter key={letter.value} value={letter.value} status={letter.status} />
+                            ))
+                            console.log(allLetters);
+                            return allLetters;
+                            }
+                        }
+                    </HangmanContext.Consumer>
                 </div>
                 <div className="new_word">New Word</div>
             </div>

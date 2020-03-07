@@ -1,9 +1,8 @@
 import React from 'react';
-import App, { HangmanContext } from '../../App';
+import { HangmanContext } from '../../App';
 
 const WordLetter = (props) => {
     return(
-    //<HangmanContext.Consumer>
         <div className="word_letter">
             <HangmanContext.Consumer>
                 {(context) => (
@@ -11,7 +10,6 @@ const WordLetter = (props) => {
                 )}
             </HangmanContext.Consumer>
         </div>
-    //</HangmanContext.Consumer>
     );
 }
 
