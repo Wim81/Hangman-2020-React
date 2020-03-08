@@ -76,41 +76,18 @@ class HangmanProvider extends Component {
                     }));
                 },
                 handleInputLetterClick: (letter) => {
-                    console.log("let's handle this letter click for letter " + letter + "!");
                     // click kan enkel indien nog in init, dus meteen status bijwerken naar hit of miss
                     // om te bepalen welke, eerst checken of letter in het huidige woord voorkomt
-                    console.log(this.state.selectedWord);
                     const letterInWordCheck = this.state.selectedWord.indexOf(letter);
-                    console.log(letterInWordCheck);
-                    if (letterInWordCheck !== -1) {
-                        // hit!
-                        let allLetters = this.state.letters;
-                        console.log(allLetters);
-                        let thisLetterIndex = allLetters.findIndex(object => object.value === letter);
-                        console.log(thisLetterIndex);
-                        let newLetter = {value: letter, status: 'hit'};
-                        console.log(newLetter);
-                        let allLettersNew = [...allLetters];
-                        const updatedLetters = allLettersNew.splice(thisLetterIndex, 1, newLetter);
-                        console.log(allLettersNew);
-                        this.setState((prevState, props) => ({
-                            letters: allLettersNew
-                        }));
-                    } else {
-                        // miss!
-                        let allLetters = this.state.letters;
-                        console.log(allLetters);
-                        let thisLetterIndex = allLetters.findIndex(object => object.value === letter);
-                        console.log(thisLetterIndex);
-                        let newLetter = {value: letter, status: 'miss'};
-                        console.log(newLetter);
-                        let allLettersNew = [...allLetters];
-                        const updatedLetters = allLettersNew.splice(thisLetterIndex, 1, newLetter);
-                        console.log(allLettersNew);
-                        this.setState((prevState, props) => ({
-                            letters: allLettersNew
-                        }));
-                    }
+                    let allLetters = this.state.letters;
+                    let thisLetterIndex = allLetters.findIndex(object => object.value === letter);
+                    let newLetter = letterInWordCheck !== -1 ? {value: letter, status: 'hit'} : {value: letter, status: 'miss'};
+                    let allLettersNew = [...allLetters];
+                    const updatedLetters = allLettersNew.splice(thisLetterIndex, 1, newLetter);
+                    this.setState((prevState, props) => ({
+                        letters: allLettersNew
+                    }));
+
                 },
                 newWordFromDb: () => {
                     let randomWordIndex = Math.floor(Math.random() * 7381);
