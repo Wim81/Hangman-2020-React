@@ -41,7 +41,7 @@ class HangmanProvider extends Component {
         ],
         wrongLetterCount: 0,        // 0-7
         unknownLetterCount: null,   // total number of unknown letters in word
-        selectedWord: null,         // word from library
+        selectedWord: 'selection',  // word from library (should be null, this is for testing purposes)
         helpShown: false            // boolean
     }
 
