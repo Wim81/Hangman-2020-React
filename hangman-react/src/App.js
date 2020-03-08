@@ -3,6 +3,7 @@ import Visuals from './containers/Visuals/Visuals';
 import Word from './containers/Word/Word';
 import Input from './containers/Input/Input';
 import Help from './containers/Help/Help';
+import axios from './axios-words';
 import './App.css';
 
 const HangmanContext = React.createContext();
@@ -41,8 +42,19 @@ class HangmanProvider extends Component {
         ],
         wrongLetterCount: 0,        // 0-7
         unknownLetterCount: null,   // total number of unknown letters in word
-        selectedWord: 'selection',  // word from library (should be null, this is for testing purposes)
+        selectedWord: '',  // word from library (should be null, this is for testing purposes)
         helpShown: false            // boolean
+    }
+
+    componentDidMount() {
+        let randomWordIndex = Math.floor(Math.random() * 7381);
+        axios.get(`https://hangman-react-a7336.firebaseio.com/${randomWordIndex}.json`)
+            .then(response => {
+                this.setState({selectedWord: response.data.word});
+            })
+            .catch(error => {
+                console.log("foutje");
+            });
     }
 
     render() {

@@ -1,16 +1,19 @@
 import React from 'react';
-import { HangmanContext } from '../../App';
+import styled from 'styled-components';
 
 const WordLetter = (props) => {
     return(
-        <div className="word_letter">
-            <HangmanContext.Consumer>
-                {(context) => (
-                    <span>{props.value}</span>  // nog te vervangen, test voor context api
-                )}
-            </HangmanContext.Consumer>
-        </div>
+        <StyledWordLetter className="word_letter">{props.value}</StyledWordLetter>
     );
 }
+
+const StyledWordLetter = styled.span`
+    color: #195904;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 16px 0;
+    width: 25px;
+    display: inline-block;
+`;
 
 export default WordLetter;
