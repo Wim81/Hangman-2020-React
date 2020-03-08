@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 const InputLetter = (props) => {
     const status = props.status;
+    const clickedStatus = status === 'init' ? "" : "clicked";
 
     return(
-        <StyledInPutLetter className={"letter " + status } value={props.value}>{props.value}</StyledInPutLetter>
+        <StyledInPutLetter className={"letter " + status + " " + clickedStatus } value={props.value}>{props.value}</StyledInPutLetter>
     );
 }
 
@@ -34,6 +35,10 @@ const StyledInPutLetter = styled.div`
     
     &.miss {
         background-color: #800000;
+    }
+    
+    &.clicked {
+        pointer-events: none;
     }
 `;
 

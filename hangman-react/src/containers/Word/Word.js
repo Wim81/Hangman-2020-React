@@ -10,14 +10,11 @@ class Word extends Component {
                 <HangmanContext.Consumer>
                     {(context) => {
                         const letterStatus = context.state.letters;
-                        console.log(letterStatus);
+                        // console.log(letterStatus);
 
                         const checkLetterStatus = (letterInstance) => {
                             return letterStatus.find(letter => letter.value === letterInstance).status;
                         }
-                        // const check = checkLetterStatus('e');
-                        // console.log(check);
-
 
                         const selectedWord = context.state.selectedWord;
                         let selectedWordArray = selectedWord.split('');

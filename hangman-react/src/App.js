@@ -75,6 +75,9 @@ class HangmanProvider extends Component {
                         letters: startArray
                     }));
                 },
+                handleInputLetterClick: (letter) => {
+                    console.log();
+                },
                 newWordFromDb: () => {
                     let randomWordIndex = Math.floor(Math.random() * 7381);
                     axios.get(`https://hangman-react-a7336.firebaseio.com/${randomWordIndex}.json`)
