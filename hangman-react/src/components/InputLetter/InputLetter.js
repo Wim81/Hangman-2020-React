@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const InputLetter = (props) => {
     const status = props.status;
-    const clickedStatus = status === 'init' ? "" : "clicked";
+    const clickedStatus = status === 'init' ? "" : " clicked";
 
     return(
-        <StyledInPutLetter className={"letter " + status + " " + clickedStatus } value={props.value}>{props.value}</StyledInPutLetter>
+        <StyledInPutLetter className={"letter " + status + clickedStatus } value={props.value} onClick={props.click}>{props.value}</StyledInPutLetter>
     );
 }
 

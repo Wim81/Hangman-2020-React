@@ -15,7 +15,11 @@ class Input extends Component {
                             const letters = context.state.letters;
                             // console.log(letters);
                             const allLetters = letters.map( letter => (
-                                <InputLetter key={letter.value} value={letter.value} status={letter.status} />
+                                <InputLetter
+                                    key={letter.value}
+                                    value={letter.value}
+                                    status={letter.status}
+                                    click={() => context.handleInputLetterClick(letter.value)} />
                             ))
                             // console.log(allLetters);
                             return allLetters;
