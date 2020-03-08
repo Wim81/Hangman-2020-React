@@ -12,7 +12,18 @@ class Word extends Component {
                         const selectedWord = context.state.selectedWord;
                         let selectedWordArray = selectedWord.split('');
                         console.log(selectedWordArray);
-                        const selectedWordItems = selectedWordArray.map( wordLetter => (
+
+                        // hier array met underscores maken waarbij underscore letter wordt zodra "hit"
+
+                        // let wordWithUnknownsArray = ["_", "_", "_", "_"];
+                        let wordWithUnknownsArray = [];
+                        let updateWordWithUnknownsArray = selectedWordArray.map( letter => {
+                            wordWithUnknownsArray.push("_");
+                        });
+
+                        console.log(wordWithUnknownsArray);
+
+                        const selectedWordItems = wordWithUnknownsArray.map( wordLetter => (
                             <WordLetter value={wordLetter} />
                         ))
                         return selectedWordItems;
