@@ -74,6 +74,16 @@ class HangmanProvider extends Component {
                     this.setState((prevState, props) => ({
                         letters: startArray
                     }));
+                },
+                newWordFromDb: () => {
+                    let randomWordIndex = Math.floor(Math.random() * 7381);
+                    axios.get(`https://hangman-react-a7336.firebaseio.com/${randomWordIndex}.json`)
+                        .then(response => {
+                            this.setState({selectedWord: response.data.word});
+                        })
+                        .catch(error => {
+                            console.log("foutje");
+                        });
                 }
             }}>
                 {this.props.children}

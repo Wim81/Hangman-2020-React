@@ -25,8 +25,8 @@ class Input extends Component {
                 </div>
                 <HangmanContext.Consumer>
                     {(context) => {
-                        return <NewWordButton click={context.initInputLetters} />;
-                    }
+                        return <NewWordButton click={() => {context.initInputLetters(); context.newWordFromDb() }} />;
+                        }
                     }
                 </HangmanContext.Consumer>
 
