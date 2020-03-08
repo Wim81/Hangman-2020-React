@@ -17,7 +17,7 @@ class HangmanProvider extends Component {
             { value: 'b', status: 'init' },
             { value: 'c', status: 'hit' },
             { value: 'd', status: 'miss' },
-            { value: 'e', status: 'init' },
+            { value: 'e', status: 'hit' },
             { value: 'f', status: 'init' },
             { value: 'g', status: 'init' },
             { value: 'h', status: 'init' },
@@ -26,13 +26,13 @@ class HangmanProvider extends Component {
             { value: 'k', status: 'init' },
             { value: 'l', status: 'init' },
             { value: 'm', status: 'init' },
-            { value: 'n', status: 'init' },
+            { value: 'n', status: 'hit' },
             { value: 'o', status: 'init' },
             { value: 'p', status: 'init' },
             { value: 'q', status: 'init' },
-            { value: 'r', status: 'init' },
-            { value: 's', status: 'init' },
-            { value: 't', status: 'init' },
+            { value: 'r', status: 'miss' },
+            { value: 's', status: 'miss' },
+            { value: 't', status: 'miss' },
             { value: 'u', status: 'init' },
             { value: 'v', status: 'init' },
             { value: 'w', status: 'init' },
@@ -99,7 +99,6 @@ class App extends Component {
             <div className="App">
                 <Visuals />
                 <Word />
-                <div className="temp">----</div>
                 <Input />
                 <Help />
             </div>

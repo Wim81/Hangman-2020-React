@@ -9,16 +9,29 @@ class Word extends Component {
             <div className="word">
                 <HangmanContext.Consumer>
                     {(context) => {
+                        const letterStatus = context.state.letters;
+                        console.log(letterStatus);
+
+                        const checkLetterStatus = (letterInstance) => {
+                            return letterStatus.find(letter => letter.value === letterInstance).status;
+                        }
+                        // const check = checkLetterStatus('e');
+                        // console.log(check);
+
+
                         const selectedWord = context.state.selectedWord;
                         let selectedWordArray = selectedWord.split('');
                         console.log(selectedWordArray);
-
-                        // hier array met underscores maken waarbij underscore letter wordt zodra "hit"
-
-                        // let wordWithUnknownsArray = ["_", "_", "_", "_"];
                         let wordWithUnknownsArray = [];
                         let updateWordWithUnknownsArray = selectedWordArray.map( letter => {
-                            wordWithUnknownsArray.push("_");
+                            console.log(letter);
+                            const check = checkLetterStatus(letter);
+                            console.log(check);
+                            if (check === 'hit') {
+                                wordWithUnknownsArray.push(letter);
+                            } else {
+                                wordWithUnknownsArray.push("_");
+                            }
                         });
 
                         console.log(wordWithUnknownsArray);

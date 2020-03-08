@@ -13,11 +13,11 @@ class Input extends Component {
                     <HangmanContext.Consumer>
                         {(context) => {
                             const letters = context.state.letters;
-                            console.log(letters);
+                            // console.log(letters);
                             const allLetters = letters.map( letter => (
                                 <InputLetter key={letter.value} value={letter.value} status={letter.status} />
                             ))
-                            console.log(allLetters);
+                            // console.log(allLetters);
                             return allLetters;
                             }
                         }
