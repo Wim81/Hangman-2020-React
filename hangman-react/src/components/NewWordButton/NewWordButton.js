@@ -3,9 +3,6 @@ import { HangmanContext } from '../../App';
 import styled from 'styled-components';
 
 const NewWordButton = (props) => {
-    const clickAction = props.click;
-    console.log(clickAction);
-
     return(
         <StyledNewWordButton onClick={props.click}>New Word</StyledNewWordButton>
     );
