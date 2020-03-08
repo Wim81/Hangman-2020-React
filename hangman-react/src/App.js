@@ -47,7 +47,33 @@ class HangmanProvider extends Component {
 
     render() {
         return(
-            <HangmanContext.Provider value={{state: this.state}}>
+            <HangmanContext.Provider value={{
+                state: this.state,
+                initInputLetters: () => {
+                    const startArray = [];
+                    for (let letter in this.state.letters) {
+                        const letterValue = letter.value;
+                        startArray.push({ value: `${letterValue}`, status: 'init' });
+                    }
+                    console.log(startArray);
+                },
+                initAll: () => {
+                    // console.log("init them all!");
+                    const startArray = [];
+                    // console.log(this.state.letters);
+                    let allLetters = this.state.letters;
+                    var tempThing = allLetters.map((letter) => {
+                        startArray.push({
+                            value: letter.value,
+                            status: 'init'
+                        });
+                    })
+                    // console.log(startArray);
+                    this.setState((prevState, props) => ({
+                        letters: startArray
+                    }));
+                }
+            }}>
                 {this.props.children}
             </HangmanContext.Provider>
         );

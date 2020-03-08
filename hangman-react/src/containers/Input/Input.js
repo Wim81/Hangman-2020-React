@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HangmanContext } from '../../App';
 import InputLetter from '../../components/InputLetter/InputLetter';
+import NewWordButton from '../../components/NewWordButton/NewWordButton';
 import '../../style.css';
 
 class Input extends Component {
@@ -22,7 +23,13 @@ class Input extends Component {
                         }
                     </HangmanContext.Consumer>
                 </div>
-                <div className="new_word">New Word</div>
+                <HangmanContext.Consumer>
+                    {(context) => {
+                        return <NewWordButton click={context.initAll} />;
+                    }
+                    }
+                </HangmanContext.Consumer>
+
             </div>
         );
     }

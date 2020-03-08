@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const InputLetter = (props) => {
     const status = props.status;
-    console.log(status);
 
     return(
         <StyledInPutLetter className={"letter " + status } value={props.value}>{props.value}</StyledInPutLetter>
