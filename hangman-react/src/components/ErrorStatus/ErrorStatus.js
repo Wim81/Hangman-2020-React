@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const ErrorStatus = (props) => {
     return(
-        <ErrorTitleStatus value={props.value}>{props.value}</ErrorTitleStatus>
+        <StyledErrorStatus class="errorStatus" value={props.value}>{props.value}</StyledErrorStatus>
     );
 }
 
-const ErrorTitleStatus = styled.div`
+const StyledErrorStatus = styled.div`
     color: blue;
     font-size: 1.5rem;
     text-transform: uppercase;

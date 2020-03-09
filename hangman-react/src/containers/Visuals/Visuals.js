@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HangmanContext } from '../../App';
 import TitleStatus from '../../components/TitleStatus/TitleStatus';
+import StatusImage from '../../components/StatusImage/StatusImage';
 import ErrorStatus from '../../components/ErrorStatus/ErrorStatus';
 
 class Visuals extends Component {
@@ -28,7 +29,37 @@ class Visuals extends Component {
                         break;
                       default:
                         return 'Something has gone wrong'
-                    }
+                    };
+                    const imageInput = context.state.wrongLetterCount;
+                    let imageOutput = '';
+                    switch (imageInput) {
+                        case 0:
+                          imageOutput = 'image_0.png';
+                          break;
+                        case 1:
+                          imageOutput = 'image_1.png';
+                          break;
+                        case 2:
+                          imageOutput = 'image_2.png';
+                          break;
+                        case 3:
+                          imageOutput = 'image_3.png';
+                          break;
+                        case 4:
+                          imageOutput = 'image_4.png';
+                          break;
+                        case 5:
+                          imageOutput = 'image_5.png';
+                          break;
+                        case 6:
+                          imageOutput = 'image_6.png';
+                          break;
+                        case 7:
+                          imageOutput = 'image_7.png';
+                          break;
+                        default:
+                          return 'Something has gone wrong'
+                      };
                     const errorStatusInput = context.state.wrongLetterCount;
                     let errorStatusOutput = '';
                     switch (errorStatusInput) {
@@ -58,14 +89,13 @@ class Visuals extends Component {
                           break;
                         default:
                           return 'Something has gone wrong'
-                      }
+                      };
 
                   return(
                     <>
                       <TitleStatus value={titleStatusOutput} />
-                      <div className="image">Images</div>
+                      <StatusImage src={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
-                      <div className="text_attempts_left">Text Attempts left</div>
                       <div className="help_button">Help Button</div>
                       <div className="lets_play">Let's Play Animation</div>
                     </>
