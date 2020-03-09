@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const WordLetter = (props) => {
+  const status = props.status;
+  const classes = "word_letter " + status
+  
     return(
-        <StyledWordLetter className="word_letter">{props.value}</StyledWordLetter>
+        <StyledWordLetter className={classes}>{props.value}</StyledWordLetter>
     );
 }
 

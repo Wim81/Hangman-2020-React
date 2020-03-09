@@ -25,29 +25,21 @@ class Word extends Component {
                             const check = checkLetterStatus(letter);
                             console.log(check);
                             if (check === 'hit') {
-                                wordWithUnknownsArray.push(letter);
+                                wordWithUnknownsArray.push({value: letter, status: "ok"});
                             } else {
-                                wordWithUnknownsArray.push("_");
+                                wordWithUnknownsArray.push({value: "_", status: "ok"});
                             }
                         });
 
                         console.log(wordWithUnknownsArray);
 
                         const selectedWordItems = wordWithUnknownsArray.map( wordLetter => (
-                            <WordLetter value={wordLetter} />
+                            <WordLetter value={wordLetter.value} />
                         ))
                         return selectedWordItems;
                         }
                     }
                 </HangmanContext.Consumer>
-
-                {/*<div className="word_letter">W</div>
-                <div className="word_letter">O</div>
-                <div className="word_letter">R</div>
-                <div className="word_letter">D</div>
-                <WordLetter />
-                <WordLetter />
-                <WordLetter />*/}
             </div>
         );
     }
