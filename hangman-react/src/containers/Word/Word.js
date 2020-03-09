@@ -24,10 +24,10 @@ class Word extends Component {
                             console.log(check);
                             if (check === 'hit') {
                                 wordWithUnknownsArray.push({value: letter, status: "ok"});
-                            } else if (!gameOver) {
-                                wordWithUnknownsArray.push({value: "_", status: "ok"});
+                            } else if (gameOver) {
+                                wordWithUnknownsArray.push({value: letter, status: "unfound"});
                             } else {
-                              wordWithUnknownsArray.push({value: letter, status: "unfound"});
+                                wordWithUnknownsArray.push({value: "_", status: "ok"});
                             }
                         });
 

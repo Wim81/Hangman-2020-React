@@ -70,13 +70,22 @@ class HangmanProvider extends Component {
                             status: 'init'
                         });
                     })
-                    this.setState((prevState, props) => ({
-                        gameOver: false,
-                        gameStatus: 'init',
-                        letters: startArray,
-                        wrongLetterCount: 0,
-                        unknownLetterCount: null
-                    }));
+                    let randomWordIndex = Math.floor(Math.random() * 7381);
+                    axios.get(`https://hangman-react-a7336.firebaseio.com/${randomWordIndex}.json`)
+                        .then(response => {
+                            this.setState((prevState, props) => ({
+                                gameOver: false,
+                                gameStatus: 'init',
+                                letters: startArray,
+                                wrongLetterCount: 0,
+                                unknownLetterCount: null,
+                                selectedWord: response.data.word
+                            }));
+                        })
+                        .catch(error => {
+                            console.log("foutje");
+                        });
+
                 },
                 handleInputLetterClick: (letter) => {
                     // update input letter status (to 'hit' or 'miss')
@@ -97,14 +106,7 @@ class HangmanProvider extends Component {
 
                 },
                 newWordFromDb: () => {
-                    let randomWordIndex = Math.floor(Math.random() * 7381);
-                    axios.get(`https://hangman-react-a7336.firebaseio.com/${randomWordIndex}.json`)
-                        .then(response => {
-                            this.setState({selectedWord: response.data.word});
-                        })
-                        .catch(error => {
-                            console.log("foutje");
-                        });
+
                 }
             }}>
                 {this.props.children}
