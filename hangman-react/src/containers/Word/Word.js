@@ -9,13 +9,11 @@ class Word extends Component {
             <div className="word">
                 <HangmanContext.Consumer>
                     {(context) => {
+                        const gameOver = context.state.gameOver;
                         const letterStatus = context.state.letters;
-                        // console.log(letterStatus);
-
                         const checkLetterStatus = (letterInstance) => {
                             return letterStatus.find(letter => letter.value === letterInstance).status;
                         }
-
                         const selectedWord = context.state.selectedWord;
                         let selectedWordArray = selectedWord.split('');
                         console.log(selectedWordArray);
@@ -26,15 +24,17 @@ class Word extends Component {
                             console.log(check);
                             if (check === 'hit') {
                                 wordWithUnknownsArray.push({value: letter, status: "ok"});
-                            } else {
+                            } else if (!gameOver) {
                                 wordWithUnknownsArray.push({value: "_", status: "ok"});
+                            } else {
+                              wordWithUnknownsArray.push({value: letter, status: "unfound"});
                             }
                         });
 
                         console.log(wordWithUnknownsArray);
 
                         const selectedWordItems = wordWithUnknownsArray.map( wordLetter => (
-                            <WordLetter value={wordLetter.value} />
+                            <WordLetter value={wordLetter.value} status={wordLetter.status} />
                         ))
                         return selectedWordItems;
                         }
