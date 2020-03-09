@@ -32,10 +32,6 @@ class Word extends Component {
                         });
 
                         console.log(wordWithUnknownsArray);
-                        let arrayHasUnknowns = wordWithUnknownsArray.findIndex(item => item.value === "_");
-                        if (arrayHasUnknowns < 0 && context.state.gameStatus === 'in_progress') {
-                         console.log("WON!");
-                        }
 
                         const selectedWordItems = wordWithUnknownsArray.map( wordLetter => (
                             <WordLetter value={wordLetter.value} status={wordLetter.status} />
