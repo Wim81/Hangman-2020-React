@@ -11,7 +11,7 @@ const HangmanContext = React.createContext();
 class HangmanProvider extends Component {
     state = {
         gameOver: false,                        // boolean
-        gameStatus: 'init',                     // init / won / lost
+        gameStatus: 'init',                     // init / in_progress / won / lost
         letters: [
             { value: 'a', status: 'init' },      // init / hit / miss
             { value: 'b', status: 'init' },
@@ -55,6 +55,15 @@ class HangmanProvider extends Component {
             .catch(error => {
                 console.log("foutje");
             });
+    }
+
+    componentDidUpdate() {
+      let unknownLetters = this.state.selectedWord.length;
+      if (unknownLetters !== this.state.unknownLetterCount) {
+        this.setState({
+          unknownLetterCount: unknownLetters,
+        });
+      }
     }
 
     render() {
@@ -101,12 +110,8 @@ class HangmanProvider extends Component {
                         letters: allLettersNew,
                         wrongLetterCount: newWrongLetterCount,
                         gameOver: newWrongLetterCount < 7 ? false : true,
-                        gameStatus: newWrongLetterCount < 7 ? 'init' : 'lost',
+                        gameStatus: newWrongLetterCount < 7 ? 'in_progress' : 'lost',
                     }), () => console.log(this.state));
-
-                },
-                newWordFromDb: () => {
-
                 }
             }}>
                 {this.props.children}
