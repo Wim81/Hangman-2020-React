@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ErrorStatus = (props) => {
     return(
-        <StyledErrorStatus class="errorStatus" value={props.value}>{props.value}</StyledErrorStatus>
+        <StyledErrorStatus className="errorStatus" value={props.value}>{props.value}</StyledErrorStatus>
     );
 }
 

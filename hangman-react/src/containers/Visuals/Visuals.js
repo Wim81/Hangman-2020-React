@@ -36,28 +36,28 @@ class Visuals extends Component {
                     let imageOutput = '';
                     switch (imageInput) {
                         case 0:
-                          imageOutput = 'image_0.png';
+                          imageOutput = 'image_0';
                           break;
                         case 1:
-                          imageOutput = 'image_1.png';
+                          imageOutput = 'image_1';
                           break;
                         case 2:
-                          imageOutput = 'image_2.png';
+                          imageOutput = 'image_2';
                           break;
                         case 3:
-                          imageOutput = 'image_3.png';
+                          imageOutput = 'image_3';
                           break;
                         case 4:
-                          imageOutput = 'image_4.png';
+                          imageOutput = 'image_4';
                           break;
                         case 5:
-                          imageOutput = 'image_5.png';
+                          imageOutput = 'image_5';
                           break;
                         case 6:
-                          imageOutput = 'image_6.png';
+                          imageOutput = 'image_6';
                           break;
                         case 7:
-                          imageOutput = 'image_7.png';
+                          imageOutput = 'image_7';
                           break;
                         default:
                           return 'Something has gone wrong'
@@ -98,7 +98,7 @@ class Visuals extends Component {
                   return(
                     <>
                       <TitleStatus value={titleStatusOutput} />
-                      <StatusImage src={imageOutput} />
+                      <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <HelpButton click={toggleHelp} />
                       <LetsPlayAnimation trigger={animationTrigger} />
