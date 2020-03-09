@@ -3,6 +3,7 @@ import { HangmanContext } from '../../App';
 import TitleStatus from '../../components/TitleStatus/TitleStatus';
 import StatusImage from '../../components/StatusImage/StatusImage';
 import ErrorStatus from '../../components/ErrorStatus/ErrorStatus';
+import HelpButton from '../../components/HelpButton/HelpButton';
 import LetsPlayAnimation from '../../components/LetsPlayAnimation/LetsPlayAnimation';
 
 class Visuals extends Component {
@@ -92,13 +93,14 @@ class Visuals extends Component {
                           return 'Something has gone wrong'
                       };
                       const animationTrigger = context.state.gameStatus === 'init' ? 'yes' : 'no';
+                      const toggleHelp = context.toggleHelpSection;
 
                   return(
                     <>
                       <TitleStatus value={titleStatusOutput} />
                       <StatusImage src={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
-                      <div className="help_button">Help Button</div>
+                      <HelpButton click={toggleHelp} />
                       <LetsPlayAnimation trigger={animationTrigger} />
                     </>
                   )}

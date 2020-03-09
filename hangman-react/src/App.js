@@ -129,6 +129,10 @@ class HangmanProvider extends Component {
                         gameOver: newWrongLetterCount < 7 ? false : true,
                         gameStatus: newWrongLetterCount < 7 ? 'in_progress' : 'lost',
                     }), () => console.log(this.state));
+                },
+                toggleHelpSection: () => {
+                    let newHelpShown = !this.state.helpShown;
+                    this.setState({helpShown: newHelpShown});
                 }
             }}>
                 {this.props.children}
