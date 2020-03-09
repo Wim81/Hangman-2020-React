@@ -84,8 +84,11 @@ class HangmanProvider extends Component {
                     let newLetter = letterInWordCheck !== -1 ? {value: letter, status: 'hit'} : {value: letter, status: 'miss'};
                     let allLettersNew = [...allLetters];
                     const updatedLetters = allLettersNew.splice(thisLetterIndex, 1, newLetter);
+                    let newWrongLetterCount = letterInWordCheck !== -1 ? this.state.wrongLetterCount : this.state.wrongLetterCount + 1;
+                    
                     this.setState((prevState, props) => ({
-                        letters: allLettersNew
+                        letters: allLettersNew,
+                        wrongLetterCount: newWrongLetterCount
                     }));
 
                 },
