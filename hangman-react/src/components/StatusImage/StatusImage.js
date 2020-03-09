@@ -11,10 +11,38 @@ import image_7 from '../../assets/image_7.png';
 
 const StatusImage = (props) => {
     let bgImg = props.image;
-    console.log(bgImg);
+    let classes = null;
+    switch(bgImg) {
+        case 'image_0':
+            classes = "statusImg state0";
+            break;
+        case 'image_1':
+            classes = "statusImg state1";
+            break;
+        case 'image_2':
+            classes = "statusImg state2";
+            break;
+        case 'image_3':
+            classes = "statusImg state3";
+            break;
+        case 'image_4':
+            classes = "statusImg state4";
+            break;
+        case 'image_5':
+            classes = "statusImg state5";
+            break;
+        case 'image_6':
+            classes = "statusImg state6";
+            break;
+        case 'image_7':
+            classes = "statusImg state7";
+            break;
+        default:
+            return 'Something went wrong';
+    }
 
     return(
-        <StyledStatusImage />
+        <StyledStatusImage className={classes} />
     );
 }
 
@@ -22,10 +50,18 @@ const StyledStatusImage = styled.div`
     width: 150px;
     height: 150px;
     margin: 0 auto;
-    background-image: url(${image_5});
+    background-image: url(${image_0});
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    
+    &.state1 { background-image: url(${image_1})};
+    &.state2 { background-image: url(${image_2})};
+    &.state3 { background-image: url(${image_3})};
+    &.state4 { background-image: url(${image_4})};
+    &.state5 { background-image: url(${image_5})};
+    &.state6 { background-image: url(${image_6})};
+    &.state7 { background-image: url(${image_7})};
 `;
 
 export default StatusImage;
