@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NewWordButton = (props) => {
+    const gameover = props.gameOver ? "gameover" : "";
+
     return(
-        <StyledNewWordButton onClick={props.click}>New Word</StyledNewWordButton>
+        <StyledNewWordButton onClick={props.click} className={gameover}>New Word</StyledNewWordButton>
     );
 }
 
@@ -19,6 +21,11 @@ const StyledNewWordButton = styled.div`
     cursor: pointer;
     padding-top: 2%;
     padding-bottom: 2%;
+    transition: 0.3s all ease-in-out;
+
+    &.gameover {
+      background-color: rgba(25, 89, 4, 1);
+    }
 `;
 
 export default NewWordButton;

@@ -30,7 +30,7 @@ class Input extends Component {
                 </div>
                 <HangmanContext.Consumer>
                     {(context) => {
-                        return <NewWordButton click={() => {context.initAll(); context.newWordFromDb() }} />;
+                        return <NewWordButton gameOver={context.state.gameOver} click={() => {context.initAll(); context.newWordFromDb() }} />;
                         }
                     }
                 </HangmanContext.Consumer>
