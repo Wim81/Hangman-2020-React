@@ -3,6 +3,7 @@ import { HangmanContext } from '../../App';
 import TitleStatus from '../../components/TitleStatus/TitleStatus';
 import StatusImage from '../../components/StatusImage/StatusImage';
 import ErrorStatus from '../../components/ErrorStatus/ErrorStatus';
+import LetsPlayAnimation from '../../components/LetsPlayAnimation/LetsPlayAnimation';
 
 class Visuals extends Component {
 
@@ -90,6 +91,7 @@ class Visuals extends Component {
                         default:
                           return 'Something has gone wrong'
                       };
+                      const animationTrigger = context.state.gameStatus === 'init' ? 'yes' : 'no';
 
                   return(
                     <>
@@ -97,7 +99,7 @@ class Visuals extends Component {
                       <StatusImage src={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <div className="help_button">Help Button</div>
-                      <div className="lets_play">Let's Play Animation</div>
+                      <LetsPlayAnimation trigger={animationTrigger} />
                     </>
                   )}
                 }
