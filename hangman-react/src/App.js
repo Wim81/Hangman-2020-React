@@ -61,8 +61,7 @@ class HangmanProvider extends Component {
         return(
             <HangmanContext.Provider value={{
                 state: this.state,
-                initInputLetters: () => {
-                    // console.log("init input letter buttons");
+                initAll: () => {
                     const startArray = [];
                     let allLetters = this.state.letters;
                     var resetLetters = allLetters.map((letter) => {
@@ -72,7 +71,11 @@ class HangmanProvider extends Component {
                         });
                     })
                     this.setState((prevState, props) => ({
-                        letters: startArray
+                        gameOver: false,
+                        gameStatus: 'init',
+                        letters: startArray,
+                        wrongLetterCount: 0,
+                        unknownLetterCount: null
                     }));
                 },
                 handleInputLetterClick: (letter) => {
