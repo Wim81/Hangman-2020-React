@@ -16,6 +16,9 @@ class Visuals extends Component {
                       case 'init':
                         titleStatusOutput = 'Hangman';
                         break;
+                      case 'in_progress':
+                        titleStatusOutput = 'Hangman';
+                        break;
                       case 'won':
                         titleStatusOutput = 'Alright!'
                         break;
