@@ -1,5 +1,4 @@
 import React from 'react';
-import { HangmanContext } from '../../App';
 import styled from 'styled-components';
 
 const NewWordButton = (props) => {
