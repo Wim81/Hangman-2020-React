@@ -19,6 +19,7 @@ class Input extends Component {
                                     key={letter.value}
                                     value={letter.value}
                                     status={letter.status}
+                                    gameOver={context.state.gameOver}
                                     click={() => context.handleInputLetterClick(letter.value)} />
                             ))
                             // console.log(allLetters);
