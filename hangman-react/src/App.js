@@ -41,7 +41,6 @@ class HangmanProvider extends Component {
             { value: 'z', status: 'init' },
         ],
         wrongLetterCount: 0,        // 0-7
-        unknownLetterCount: null,   // total number of unknown letters in word
         selectedWord: '',           // word from library (should be null, this is for testing purposes)
         helpShown: false            // boolean
     }
@@ -106,7 +105,6 @@ class HangmanProvider extends Component {
                                 gameStatus: 'init',
                                 letters: startArray,
                                 wrongLetterCount: 0,
-                                unknownLetterCount: null,
                                 selectedWord: response.data.word
                             }));
                         })
