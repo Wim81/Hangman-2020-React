@@ -76,20 +76,21 @@ class HangmanProvider extends Component {
                     }));
                 },
                 handleInputLetterClick: (letter) => {
-                    // click kan enkel indien nog in init, dus meteen status bijwerken naar hit of miss
-                    // om te bepalen welke, eerst checken of letter in het huidige woord voorkomt
+                    // update input letter status (to 'hit' or 'miss')
                     const letterInWordCheck = this.state.selectedWord.indexOf(letter);
                     let allLetters = this.state.letters;
                     let thisLetterIndex = allLetters.findIndex(object => object.value === letter);
                     let newLetter = letterInWordCheck !== -1 ? {value: letter, status: 'hit'} : {value: letter, status: 'miss'};
                     let allLettersNew = [...allLetters];
                     const updatedLetters = allLettersNew.splice(thisLetterIndex, 1, newLetter);
+                    // update wrongLetterCount (& game status if it reaches its maximum of 7)
                     let newWrongLetterCount = letterInWordCheck !== -1 ? this.state.wrongLetterCount : this.state.wrongLetterCount + 1;
-                    
                     this.setState((prevState, props) => ({
                         letters: allLettersNew,
-                        wrongLetterCount: newWrongLetterCount
-                    }));
+                        wrongLetterCount: newWrongLetterCount,
+                        gameOver: newWrongLetterCount < 7 ? false : true,
+                        gameStatus: newWrongLetterCount < 7 ? 'init' : 'lost',
+                    }), () => console.log(this.state));
 
                 },
                 newWordFromDb: () => {
