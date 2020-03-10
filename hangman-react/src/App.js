@@ -146,12 +146,10 @@ class App extends Component {
         return (
             <StyledApp>
                 <HangmanProvider>
-                    <div className="App">
                         <Visuals />
                         <Word />
                         <Input />
                         <Help />
-                    </div>
                 </HangmanProvider>
             </StyledApp>
         );
@@ -169,6 +167,10 @@ const StyledApp = styled.div`
   min-height: 562.5px;
   max-height: 975px;
   margin: 0 auto;
+  
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export {HangmanContext};
