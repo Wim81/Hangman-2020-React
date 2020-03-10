@@ -4,7 +4,7 @@ import Word from './containers/Word/Word';
 import Input from './containers/Input/Input';
 import Help from './containers/Help/Help';
 import axios from './axios-words';
-import './App.css';
+import styled from 'styled-components';
 
 const HangmanContext = React.createContext();
 
@@ -144,17 +144,27 @@ class HangmanProvider extends Component {
 class App extends Component {
     render() {
         return (
-        <HangmanProvider>
-            <div className="App">
-                <Visuals />
-                <Word />
-                <Input />
-                <Help />
-            </div>
-        </HangmanProvider>
+            <StyledApp>
+                <HangmanProvider>
+                    <div className="App">
+                        <Visuals />
+                        <Word />
+                        <Input />
+                        <Help />
+                    </div>
+                </HangmanProvider>
+            </StyledApp>
         );
     }
 }
+
+const StyledApp = styled.div`
+  text-align: center;
+  color: white;
+  background-color: darkgray;
+  height: 100vh;
+  width: 100vw;
+`;
 
 export {HangmanContext};
 export default App;
