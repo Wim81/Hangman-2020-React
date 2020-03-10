@@ -5,13 +5,12 @@ import StatusImage from '../../components/StatusImage/StatusImage';
 import ErrorStatus from '../../components/ErrorStatus/ErrorStatus';
 import HelpButton from '../../components/HelpButton/HelpButton';
 import LetsPlayAnimation from '../../components/LetsPlayAnimation/LetsPlayAnimation';
+import styled from 'styled-components';
 
 class Visuals extends Component {
 
-
     render() {
         return (
-            <div className="visuals">
             <HangmanContext.Consumer>
                 {(context) => {
                   const titleStatusInput = context.state.gameStatus;
@@ -96,19 +95,23 @@ class Visuals extends Component {
                       const toggleHelp = context.toggleHelpSection;
 
                   return(
-                    <>
+                    <StyledVisuals>
                       <TitleStatus value={titleStatusOutput} />
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <HelpButton click={toggleHelp} />
                       <LetsPlayAnimation trigger={animationTrigger} />
-                    </>
+                    </StyledVisuals>
                   )}
                 }
             </HangmanContext.Consumer>
-            </div>
         );
     }
 }
+
+const StyledVisuals = styled.div`
+    border: 1px solid blue;
+    height: 52%;
+`;
 
 export default Visuals;

@@ -3,12 +3,13 @@ import { HangmanContext } from '../../App';
 import InputLetter from '../../components/InputLetter/InputLetter';
 import NewWordButton from '../../components/NewWordButton/NewWordButton';
 import '../../style.css';
+import styled from 'styled-components';
 
 class Input extends Component {
 
     render() {
         return (
-            <div className="input">
+            <StyledInput>
                 <div className="letters">
                     <HangmanContext.Consumer>
                         {(context) => {
@@ -35,9 +36,14 @@ class Input extends Component {
                     }
                 </HangmanContext.Consumer>
 
-            </div>
+            </StyledInput>
         );
     }
 }
+
+const StyledInput = styled.div`
+    border: 1px solid purple;
+    height: 38%;
+`;
 
 export default Input;

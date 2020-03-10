@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { HangmanContext } from '../../App';
 import WordLetter from '../../components/WordLetter/WordLetter';
+import styled from 'styled-components';
 
 class Word extends Component {
 
     render() {
         return (
-            <div className="word">
+            <StyledWord>
                 <HangmanContext.Consumer>
                     {(context) => {
                         const gameOver = context.state.gameOver;
@@ -40,9 +41,14 @@ class Word extends Component {
                         }
                     }
                 </HangmanContext.Consumer>
-            </div>
+            </StyledWord>
         );
     }
 }
+
+const StyledWord = styled.div`
+    border: 1px solid green;
+    height: 10%;
+`;
 
 export default Word;
