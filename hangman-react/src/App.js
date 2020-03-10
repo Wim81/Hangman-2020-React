@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Background from './components/Background/Background';
 import Visuals from './containers/Visuals/Visuals';
 import Word from './containers/Word/Word';
 import Input from './containers/Input/Input';
@@ -142,23 +143,24 @@ class HangmanProvider extends Component {
 }
 
 class App extends Component {
+
     render() {
         return (
-            <StyledApp>
-                <HangmanProvider>
+            <HangmanProvider>
+                <StyledApp>
+                        <Background/>
                         <Visuals />
                         <Word />
                         <Input />
                         <Help />
-                </HangmanProvider>
-            </StyledApp>
+                </StyledApp>
+            </HangmanProvider>
         );
     }
 }
 
 const StyledApp = styled.div`
   text-align: center;
-  background: linear-gradient(#000000, #686500 16.59%, #D3B42F 36.09%, #218206 50%, #D7A916 57.50%, #D7A916 79.86%, #666600 100%);
   width: 100vw;
   min-width: 300px;
   max-width: 472px;
@@ -168,6 +170,7 @@ const StyledApp = styled.div`
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  
   
   * {
     box-sizing: border-box;
