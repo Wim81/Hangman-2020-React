@@ -17,7 +17,7 @@ const StyledInPutLetter = styled.div`
     text-transform: uppercase;
     background-color: #666600;
     color: #dbaa16;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     border-top: 0px solid black;
     border-right: 3px solid black;
     border-bottom: 3px solid black;

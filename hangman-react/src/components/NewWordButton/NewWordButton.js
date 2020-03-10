@@ -12,7 +12,7 @@ const NewWordButton = (props) => {
 const StyledNewWordButton = styled.div`
     text-transform: uppercase;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 3rem;
     background-color: rgba(25, 89, 4, 0.5);
     color: #dbaa16;
     border-top: 3px solid black;
