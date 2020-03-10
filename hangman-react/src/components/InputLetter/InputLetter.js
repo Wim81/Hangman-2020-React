@@ -17,14 +17,36 @@ const StyledInPutLetter = styled.div`
     text-transform: uppercase;
     background-color: #666600;
     color: #dbaa16;
-    border: 2px solid black;
-    width: 30px;
-    height: 30px;
+    font-size: 1.5rem;
+    border-top: 0px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    width: 14.28%;
+    height: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem;
     transition: 0.2s all ease-in-out;
+    
+    &[value='a'],
+    &[value='b'],
+    &[value='c'],
+    &[value='d'],
+    &[value='e'],
+    &[value='f'],
+    &[value='g'] {
+        border-top: 3px solid black;
+    }
+
+    &[value='a'],
+    &[value='h'],
+    &[value='o'] {
+        border-left: 3px solid black;
+    }
+    
+    &[value='v'] {
+        box-shadow: -3px 0px 0px 0px black;
+    }
 
     &:hover {
         background-color: #008888;

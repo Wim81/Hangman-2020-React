@@ -50,6 +50,9 @@ const StyledInput = styled.div`
     
     .letters {
         flex: 1 1 auto;
+        margin: 0 5% 32px 5%;
+        display: flex;
+        justify-content: center;
     }
 `;
 

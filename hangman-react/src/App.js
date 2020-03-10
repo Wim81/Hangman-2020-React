@@ -157,7 +157,6 @@ class App extends Component {
 }
 
 const StyledApp = styled.div`
-  border: 1px solid red;
   text-align: center;
   background: linear-gradient(#000000, #686500 16.59%, #D3B42F 36.09%, #218206 50%, #D7A916 57.50%, #D7A916 79.86%, #666600 100%);
   width: 100vw;
