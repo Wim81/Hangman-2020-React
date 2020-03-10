@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import helpImg from '../../assets/help_btn.png';
 
 const HelpButton = (props) => {
+    let classes = props.show ? "help_btn show" : "help_btn";
+
     return(
-        <StyledHelpButton className="help_btn" onClick={props.click} />
+        <StyledHelpButton className={classes} onClick={props.click} />
     );
 }
 
@@ -20,9 +22,14 @@ const StyledHelpButton = styled.div`
    background-repeat: no-repeat;
    background-size: contain;
    background-position: center;
+   display: none;
    
    &:hover {
-    cursor: pointer;
+     cursor: pointer;
+   }
+   
+   &.show {
+     display: block;
    }
 `;
 

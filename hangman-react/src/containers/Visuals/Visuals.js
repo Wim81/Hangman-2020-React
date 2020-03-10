@@ -94,6 +94,7 @@ class Visuals extends Component {
                       };
                       const animationTrigger = context.state.gameStatus === 'init' ? 'yes' : 'no';
                       const toggleHelp = context.toggleHelpSection;
+                      const helpButtonShown = context.state.gameStatus === "init";
 
                   return(
                     <StyledVisuals>
@@ -101,7 +102,7 @@ class Visuals extends Component {
                       <TitleStatus image={titleStatusOutput} />
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
-                      <HelpButton click={toggleHelp} />
+                      <HelpButton click={toggleHelp} show={helpButtonShown} />
                       <LetsPlayAnimation trigger={animationTrigger} />
                     </StyledVisuals>
                   )}
