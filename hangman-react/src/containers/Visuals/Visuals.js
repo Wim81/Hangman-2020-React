@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HangmanContext } from '../../App';
+import VisualsFrame from '../../components/VisualsFrame/VisualsFrame';
 import TitleStatus from '../../components/TitleStatus/TitleStatus';
 import StatusImage from '../../components/StatusImage/StatusImage';
 import ErrorStatus from '../../components/ErrorStatus/ErrorStatus';
@@ -96,6 +97,7 @@ class Visuals extends Component {
 
                   return(
                     <StyledVisuals>
+                      <VisualsFrame />
                       <TitleStatus value={titleStatusOutput} />
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />

@@ -161,10 +161,10 @@ const StyledApp = styled.div`
   background: linear-gradient(#000000, #686500 16.59%, #D3B42F 36.09%, #218206 50%, #D7A916 57.50%, #D7A916 79.86%, #666600 100%);
   width: 100vw;
   min-width: 300px;
-  max-width: 520px;
+  max-width: 472px;
   height: 187.5vw;
   min-height: 562.5px;
-  max-height: 975px;
+  max-height: 885px;
   margin: 0 auto;
   
   * {
