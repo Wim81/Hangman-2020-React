@@ -47,9 +47,12 @@ const StatusImage = (props) => {
 }
 
 const StyledStatusImage = styled.div`
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
+    position: absolute;
+    top: -0.6%;
+    left: -0.8%;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
     background-image: url(${image_0});
     background-position: center;
     background-repeat: no-repeat;

@@ -112,7 +112,7 @@ class Visuals extends Component {
 }
 
 const StyledVisuals = styled.div`
-    border: 1px solid blue;
+    position: relative;
     height: 52%;
 `;
 
