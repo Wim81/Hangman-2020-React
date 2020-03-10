@@ -1,8 +1,16 @@
+@font-face {
+  font-family: "WV_HM";
+  src: url("./assets/fonts/ARBONNIE.ttf");
+}
+
+@font-face {
+  font-family: "WV_HM2";
+  src: url("./assets/fonts/Remington-Noiseless.ttf");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "WV_HM", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,3 +19,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
