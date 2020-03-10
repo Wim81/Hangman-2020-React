@@ -42,7 +42,6 @@ class Input extends Component {
 }
 
 const StyledInput = styled.div`
-    border: 1px solid purple;
     height: 38%;
     display: flex;
     flex-direction: column;

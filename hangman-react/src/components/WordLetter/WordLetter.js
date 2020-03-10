@@ -11,12 +11,15 @@ const WordLetter = (props) => {
 }
 
 const StyledWordLetter = styled.span`
+    font-family: "WV_HM2";
+    text-transform: uppercase;
     color: #195904;
     font-weight: bold;
-    font-size: 2rem;
-    padding: 16px 0;
-    width: 25px;
-    display: inline-block;
+    font-size: 3rem;
+    width: 50px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 16px;
     
     &.unfound {
       color: #800000;

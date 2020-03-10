@@ -47,8 +47,9 @@ class Word extends Component {
 }
 
 const StyledWord = styled.div`
-    border: 1px solid green;
     height: 10%;
+    display: flex;
+    justify-content: center;
 `;
 
 export default Word;
