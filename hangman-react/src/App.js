@@ -166,6 +166,7 @@ const StyledApp = styled.div`
   min-height: 562.5px;
   max-height: 885px;
   margin: 0 auto;
+  position: relative;
   
   * {
     box-sizing: border-box;

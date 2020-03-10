@@ -21,7 +21,6 @@ class VisualFrame extends Component {
 }
 
 const StyledVisualFrame = styled.div`
-    border: 1px solid blue;
     width: 100%;
     height: 100%;
     position: relative;
