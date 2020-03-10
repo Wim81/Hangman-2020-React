@@ -18,16 +18,16 @@ class Visuals extends Component {
                   let titleStatusOutput = '';
                   switch (titleStatusInput) {
                       case 'init':
-                        titleStatusOutput = 'Hangman';
+                        titleStatusOutput = 'title_hangman';
                         break;
                       case 'in_progress':
-                        titleStatusOutput = 'Hangman';
+                        titleStatusOutput = 'title_hangman';
                         break;
                       case 'won':
-                        titleStatusOutput = 'Alright!'
+                        titleStatusOutput = 'title_alright'
                         break;
                       case 'lost':
-                        titleStatusOutput = 'Game Over';
+                        titleStatusOutput = 'title_gameover';
                         break;
                       default:
                         return 'Something has gone wrong'
@@ -98,7 +98,7 @@ class Visuals extends Component {
                   return(
                     <StyledVisuals>
                       <VisualsFrame />
-                      <TitleStatus value={titleStatusOutput} />
+                      <TitleStatus image={titleStatusOutput} />
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <HelpButton click={toggleHelp} />
