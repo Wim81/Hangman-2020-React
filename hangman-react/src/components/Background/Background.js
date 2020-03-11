@@ -67,11 +67,11 @@ const StyledBackground = styled.div`
         top: 0;
         left: 0;
         z-index: -3;
-        transition: background 2s ease-in-out;
+        transition: all 1s ease-in-out;
         width: 100%;
         height: 100%;
         background: linear-gradient(#195904, #686500 16.59%, #D3B42F 36.09%, #218206 50%, #D7A916 57.50%, #D7A916 79.86%, #666600 100%);
-        opacity: 0.01;
+        opacity: 0;
     }
     
     div.lost {
@@ -79,11 +79,11 @@ const StyledBackground = styled.div`
         top: 0;
         left: 0;
         z-index: -2;
-        transition: background 2s ease-in-out;
+        transition: all 1s ease-in-out;
         width: 100%;
         height: 100%;
         background: linear-gradient(#800000, #686500 16.59%, #D3B42F 36.09%, #218206 50%, #D7A916 57.50%, #D7A916 79.86%, #666600 100%);
-        opacity: 0.01;
+        opacity: 0;
     }
     
     &.won {
