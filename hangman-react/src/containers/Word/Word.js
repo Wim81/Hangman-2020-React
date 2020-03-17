@@ -16,6 +16,8 @@ class Word extends Component {
                             return letterStatus.find(letter => letter.value === letterInstance).status;
                         }
                         const selectedWord = context.state.selectedWord;
+                        const selectedWordLength = selectedWord.length;
+                        console.log(selectedWordLength);
                         let selectedWordArray = selectedWord.split('');
                         console.log(selectedWordArray);
                         let wordWithUnknownsArray = [];
@@ -50,6 +52,7 @@ const StyledWord = styled.div`
     height: 10%;
     display: flex;
     justify-content: center;
+    margin: 0 10%;
 `;
 
 export default Word;

@@ -18,6 +18,7 @@ const StyledWordLetter = styled.span`
     font-size: 3rem;
     width: 50px;
     display: flex;
+    justify-content: center;
     align-items: flex-end;
     padding-bottom: 16px;
     

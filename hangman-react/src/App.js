@@ -43,6 +43,7 @@ class HangmanProvider extends Component {
         ],
         wrongLetterCount: 0,        // 0-7
         selectedWord: '',           // word from library (should be null, this is for testing purposes)
+        selectedWordLength: 0,      // number of characters in selected word
         helpShown: false            // boolean
     }
 
@@ -50,7 +51,15 @@ class HangmanProvider extends Component {
         let randomWordIndex = Math.floor(Math.random() * 7381);
         axios.get(`https://hangman-react-a7336.firebaseio.com/${randomWordIndex}.json`)
             .then(response => {
-                this.setState({selectedWord: response.data.word});
+                this.setState({
+                    selectedWord: response.data.word,
+                    selectedWordLength: response.data.word.length
+                });
+                /*this.setState({
+                    selectedWord: 'electrocardiogram',
+                    selectedWordLength: 17
+                });*/
+
             })
             .catch(error => {
                 console.log("foutje");
@@ -106,7 +115,8 @@ class HangmanProvider extends Component {
                                 gameStatus: 'init',
                                 letters: startArray,
                                 wrongLetterCount: 0,
-                                selectedWord: response.data.word
+                                selectedWord: response.data.word,
+                                selectedWordLength: response.data.word.length
                             }));
                         })
                         .catch(error => {
