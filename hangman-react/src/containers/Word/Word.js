@@ -16,8 +16,18 @@ class Word extends Component {
                             return letterStatus.find(letter => letter.value === letterInstance).status;
                         }
                         const selectedWord = context.state.selectedWord;
-                        const selectedWordLength = selectedWord.length;
-                        console.log(selectedWordLength);
+
+                        const selectedWordLength = context.state.selectedWordLength;
+                        let wordSize = '';
+                        if (selectedWordLength < 9) {
+                            wordSize = 'small';
+                        } else if (selectedWordLength < 12) {
+                            wordSize = "medium"
+                        } else {
+                            wordSize = 'large'
+                        }
+                        console.log("WORD SIZE = " + wordSize);
+
                         let selectedWordArray = selectedWord.split('');
                         console.log(selectedWordArray);
                         let wordWithUnknownsArray = [];
@@ -37,7 +47,7 @@ class Word extends Component {
                         console.log(wordWithUnknownsArray);
 
                         const selectedWordItems = wordWithUnknownsArray.map( wordLetter => (
-                            <WordLetter value={wordLetter.value} status={wordLetter.status} />
+                            <WordLetter value={wordLetter.value} status={wordLetter.status} wordsize={wordSize} />
                         ))
                         return selectedWordItems;
                         }
@@ -52,7 +62,7 @@ const StyledWord = styled.div`
     height: 10%;
     display: flex;
     justify-content: center;
-    margin: 0 10%;
+    margin: 0 5%;
 `;
 
 export default Word;

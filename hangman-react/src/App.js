@@ -55,11 +55,6 @@ class HangmanProvider extends Component {
                     selectedWord: response.data.word,
                     selectedWordLength: response.data.word.length
                 });
-                /*this.setState({
-                    selectedWord: 'electrocardiogram',
-                    selectedWordLength: 17
-                });*/
-
             })
             .catch(error => {
                 console.log("foutje");
