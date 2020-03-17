@@ -44,10 +44,10 @@ const ErrorStatus = (props) => {
 
 const StyledErrorStatus = styled.div`
     width: 68%;
-    height: 12%;
+    height: 14%;
     margin: 0 auto;
     position: relative;
-    top: -16%;
+    top: -17.5%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
