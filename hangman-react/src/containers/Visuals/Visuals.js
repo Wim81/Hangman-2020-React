@@ -66,28 +66,28 @@ class Visuals extends Component {
                     let errorStatusOutput = '';
                     switch (errorStatusInput) {
                         case 0:
-                          errorStatusOutput = '';
+                          errorStatusOutput = 'default';
                           break;
                         case 1:
-                          errorStatusOutput = 'Errors allowed: 5/6';
+                          errorStatusOutput = 'errors_left_5';
                           break;
                         case 2:
-                          errorStatusOutput = 'Errors allowed: 4/6';
+                          errorStatusOutput = 'errors_left_4';
                           break;
                         case 3:
-                          errorStatusOutput = 'Errors allowed: 3/6';
+                          errorStatusOutput = 'errors_left_3';
                           break;
                         case 4:
-                          errorStatusOutput = 'Errors allowed: 2/6';
+                          errorStatusOutput = 'errors_left_2';
                           break;
                         case 5:
-                          errorStatusOutput = 'Errors allowed: 1/6';
+                          errorStatusOutput = 'errors_left_1';
                           break;
                         case 6:
-                          errorStatusOutput = 'Errors allowed: 0/6';
+                          errorStatusOutput = 'errors_left_0';
                           break;
                         case 7:
-                          errorStatusOutput = '';
+                          errorStatusOutput = 'default';
                           break;
                         default:
                           return 'Something has gone wrong'
