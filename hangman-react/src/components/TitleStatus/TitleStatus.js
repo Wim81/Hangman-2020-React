@@ -33,7 +33,7 @@ class TitleStatus extends Component {
             updatedLocalState = 'lost';
         }
         console.log("UPDATED CLASSES = " + updatedLocalState);
-        this.state.prevStatus = updatedLocalState;
+        this.state.prevGameStatus = updatedLocalState;
     }
 
     render() {
