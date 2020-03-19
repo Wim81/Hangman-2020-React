@@ -8,38 +8,68 @@ const TitleStatus = (props) => {
     let bgImg = props.image;
     let classes = null;
     switch(bgImg) {
-        case 'title_hangman':
-            classes = "titleStatus title_hangman";
+        case 'show_title_hangman':
+            classes = "show_title_hangman";
             break;
-        case 'title_alright':
-            classes = "titleStatus title_alright";
+        case 'show_title_alright':
+            classes = "show_title_alright";
             break;
-        case 'title_gameover':
-            classes = "titleStatus title_gameover";
+        case 'show_title_gameover':
+            classes = "show_title_gameover";
             break;
         default:
             return 'Something went wrong';
     }
 
     return(
-        <StyledTitleStatus className={classes} />
+        <StyledTitleStatus className={classes}>
+            <div className="titleStatus title_hangman"></div>
+            <div className="titleStatus title_alright"></div>
+            <div className="titleStatus title_gameover"></div>
+        </StyledTitleStatus>
     );
 }
 
 const StyledTitleStatus = styled.div`
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     width: 72%;
     height: 25%;
     position: absolute;
     top: 0;
     left: 14%;
-    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+
+    &.show_title_hangman {
+        .title_hangman { top: 2%; }
+        .title_alright { top: 100%; };
+        .title_gameover { top: 100%; };
+    }
     
-    &.title_hangman { background-image: url(${title_hangman}); top: 2%;};
-    &.title_alright { background-image: url(${title_alright})};
-    &.title_gameover { background-image: url(${title_gameover})};
+    &.show_title_alright {
+        .title_hangman { top: 100%; }
+        .title_alright {};
+        .title_gameover { top: 100%; };
+    }
+    
+    &.show_title_gameover {
+        .title_hangman { top: 100%; }
+        .title_alright { top: 100%; };
+        .title_gameover {};
+    }
+
+    .titleStatus {
+        border: 1px solid red;   /* temp */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        
+        &.title_hangman { background-image: url(${title_hangman})};
+        &.title_alright { background-image: url(${title_alright})};
+        &.title_gameover { background-image: url(${title_gameover})};
+    } 
 `;
 
 export default TitleStatus;

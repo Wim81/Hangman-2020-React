@@ -18,16 +18,16 @@ class Visuals extends Component {
                   let titleStatusOutput = '';
                   switch (titleStatusInput) {
                       case 'init':
-                        titleStatusOutput = 'title_hangman';
+                        titleStatusOutput = 'show_title_hangman';
                         break;
                       case 'in_progress':
-                        titleStatusOutput = 'title_hangman';
+                        titleStatusOutput = 'show_title_hangman';
                         break;
                       case 'won':
-                        titleStatusOutput = 'title_alright'
+                        titleStatusOutput = 'show_title_alright'
                         break;
                       case 'lost':
-                        titleStatusOutput = 'title_gameover';
+                        titleStatusOutput = 'show_title_gameover';
                         break;
                       default:
                         return 'Something has gone wrong'
