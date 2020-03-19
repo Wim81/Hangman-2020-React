@@ -1,33 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { HangmanContext } from '../../App';
 import styled, { keyframes } from 'styled-components';
 import title_hangman from '../../assets/title_hangman.png';
 import title_alright from '../../assets/title_alright.png';
 import title_gameover from '../../assets/title_gameover.png';
 
-const TitleStatus = (props) => {
-    let bgImg = props.image;
-    let classes = null;
-    switch(bgImg) {
-        case 'show_title_hangman':
-            classes = "show_title_hangman";
-            break;
-        case 'show_title_alright':
-            classes = "show_title_alright";
-            break;
-        case 'show_title_gameover':
-            classes = "show_title_gameover";
-            break;
-        default:
-            return 'Something went wrong';
-    }
+class TitleStatus extends Component {
 
-    return(
-        <StyledTitleStatus className={classes}>
-            <div className="titleStatus title_hangman"></div>
-            <div className="titleStatus title_alright"></div>
-            <div className="titleStatus title_gameover"></div>
-        </StyledTitleStatus>
-    );
+    render() {
+        return (
+            <HangmanContext.Consumer>
+                {(context) => {
+                    let bgImg = context.state.gameStatus;
+                    let classes = null;
+                    switch (bgImg) {
+                        case 'init':
+                            classes = "show_title_hangman";
+                            break;
+                        case 'in_progress':
+                            classes = "show_title_hangman";
+                            break;
+                        case 'won':
+                            classes = "show_title_alright";
+                            break;
+                        case 'lost':
+                            classes = "show_title_gameover";
+                            break;
+                        default:
+                            return 'Something went wrong';
+                    }
+
+                    return (
+                        <StyledTitleStatus className={classes}>
+                            <div className="titleStatus title_hangman"></div>
+                            <div className="titleStatus title_alright"></div>
+                            <div className="titleStatus title_gameover"></div>
+                        </StyledTitleStatus>
+                    );
+                }
+            }
+            </HangmanContext.Consumer>
+        );
+    }
 }
 
 const keyFramesMoveIn = keyframes`
@@ -52,8 +66,8 @@ const StyledTitleStatus = styled.div`
 
     &.show_title_hangman {
         .title_hangman { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; }
-        .title_alright { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
-        .title_gameover { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
+        .title_alright { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }; /**/
+        .title_gameover { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }; /**/
     }
     
     &.show_title_alright {
