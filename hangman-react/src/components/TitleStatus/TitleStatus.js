@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import title_hangman from '../../assets/title_hangman.png';
 import title_alright from '../../assets/title_alright.png';
 import title_gameover from '../../assets/title_gameover.png';
@@ -30,46 +30,58 @@ const TitleStatus = (props) => {
     );
 }
 
+const keyFramesMoveIn = keyframes`
+    0% { top: 100%; opacity: 1; }
+    100% {top: 0%; opacity: 1;} 
+`;
+
+const keyFramesMoveOut = keyframes`
+    0% { top: 0%; opacity: 1; }
+    50% { top: 0%; opacity: 1; }
+    99% { top: -100%; opacity: 1; }
+    100% {top: 100%; opacity: 1;} 
+`;
+
 const StyledTitleStatus = styled.div`
     width: 72%;
     height: 25%;
     position: absolute;
-    top: 0;
+    top: 2%;
     left: 14%;
     overflow: hidden;
 
     &.show_title_hangman {
-        .title_hangman { top: 2%; }
-        .title_alright { top: 100%; };
-        .title_gameover { top: 100%; };
+        .title_hangman { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; }
+        .title_alright { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
+        .title_gameover { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
     }
     
     &.show_title_alright {
-        .title_hangman { top: 100%; }
-        .title_alright {};
-        .title_gameover { top: 100%; };
+        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }
+        .title_alright { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
+        .title_gameover {  };
     }
     
     &.show_title_gameover {
-        .title_hangman { top: 100%; }
-        .title_alright { top: 100%; };
-        .title_gameover {};
+        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }
+        .title_alright {  };
+        .title_gameover { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
     }
 
     .titleStatus {
-        border: 1px solid red;   /* temp */
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
+        top: 100%;
         height: 100%;
         width: 100%;
-        transition: all 0.3s ease-in-out;
         
         &.title_hangman { background-image: url(${title_hangman})};
-        &.title_alright { background-image: url(${title_alright})};
-        &.title_gameover { background-image: url(${title_gameover})};
-    } 
+        &.title_alright { background-image: url(${title_alright});};
+        &.title_gameover { background-image: url(${title_gameover});};
+    }
+   
 `;
 
 export default TitleStatus;
