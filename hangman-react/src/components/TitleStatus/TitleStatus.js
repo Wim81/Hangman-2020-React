@@ -6,6 +6,35 @@ import title_alright from '../../assets/title_alright.png';
 import title_gameover from '../../assets/title_gameover.png';
 
 class TitleStatus extends Component {
+    state = {
+        prevGameStatus: 'init'
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        let prevGameStatus = 'init';
+        console.log(prevProps);
+        if (prevProps.image === 'show_title_gameover') {
+            prevGameStatus = "lost";
+        }
+        if (prevProps.image === 'show_title_alright') {
+            prevGameStatus = "won";
+        }
+        console.log(prevGameStatus);
+        return prevGameStatus;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("SNAPSHOT = " + snapshot);
+        let updatedLocalState = 'init';
+        if (snapshot === "won") {
+            updatedLocalState = 'won';
+        }
+        if (snapshot === "lost") {
+            updatedLocalState = 'lost';
+        }
+        console.log("UPDATED CLASSES = " + updatedLocalState);
+        this.state.prevStatus = updatedLocalState;
+    }
 
     render() {
         return (
