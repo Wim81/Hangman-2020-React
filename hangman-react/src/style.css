@@ -1,0 +1,13 @@
+body {
+    background-color: olive;
+    /*background: linear-gradient(#000000, olive 100%);*/
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#root {
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+
+}
