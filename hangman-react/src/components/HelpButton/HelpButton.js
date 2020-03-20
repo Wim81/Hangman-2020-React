@@ -11,8 +11,8 @@ const HelpButton = (props) => {
 }
 
 const StyledHelpButton = styled.div`
-   width: 65px;
-   height: 65px;
+   width: 13.8%;
+   height: 14.1%;
    position: absolute;
    top: 69%;
    right: 4%;
