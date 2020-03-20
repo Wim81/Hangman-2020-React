@@ -6,35 +6,6 @@ import title_alright from '../../assets/title_alright.png';
 import title_gameover from '../../assets/title_gameover.png';
 
 class TitleStatus extends Component {
-    state = {
-        prevGameStatus: 'init'
-    }
-
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        let prevGameStatus = 'init';
-        console.log(prevProps);
-        if (prevProps.image === 'show_title_gameover') {
-            prevGameStatus = "lost";
-        }
-        if (prevProps.image === 'show_title_alright') {
-            prevGameStatus = "won";
-        }
-        console.log(prevGameStatus);
-        return prevGameStatus;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("SNAPSHOT = " + snapshot);
-        let updatedLocalState = 'init';
-        if (snapshot === "won") {
-            updatedLocalState = 'won';
-        }
-        if (snapshot === "lost") {
-            updatedLocalState = 'lost';
-        }
-        console.log("UPDATED CLASSES = " + updatedLocalState);
-        this.state.prevGameStatus = updatedLocalState;
-    }
 
     render() {
         return (
@@ -62,8 +33,8 @@ class TitleStatus extends Component {
                     return (
                         <StyledTitleStatus className={classes}>
                             <div className="titleStatus title_hangman"></div>
-                            <div className="titleStatus title_alright"></div>
-                            <div className="titleStatus title_gameover"></div>
+                            <div className="titleStatus title_game_end"></div>
+
                         </StyledTitleStatus>
                     );
                 }
@@ -94,21 +65,18 @@ const StyledTitleStatus = styled.div`
     overflow: hidden;
 
     &.show_title_hangman {
-        .title_hangman { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; }
-        .title_alright { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }; /**/
-        .title_gameover { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }; /**/
+        .title_hangman { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
+        .title_game_end { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
     }
     
     &.show_title_alright {
-        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }
-        .title_alright { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
-        .title_gameover {  };
+        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
+        .title_game_end { background-image: url(${title_alright}); animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
     }
     
     &.show_title_gameover {
-        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; }
-        .title_alright {  };
-        .title_gameover { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
+        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
+        .title_game_end { background-image: url(${title_gameover}); animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
     }
 
     .titleStatus {
@@ -119,12 +87,9 @@ const StyledTitleStatus = styled.div`
         top: 100%;
         height: 100%;
         width: 100%;
-        
-        &.title_hangman { background-image: url(${title_hangman})};
-        &.title_alright { background-image: url(${title_alright});};
-        &.title_gameover { background-image: url(${title_gameover});};
     }
    
+    .title_hangman { background-image: url(${title_hangman})};
 `;
 
 export default TitleStatus;
