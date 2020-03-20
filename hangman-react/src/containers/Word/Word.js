@@ -46,8 +46,8 @@ class Word extends Component {
 
                         console.log(wordWithUnknownsArray);
 
-                        const selectedWordItems = wordWithUnknownsArray.map( wordLetter => (
-                            <WordLetter value={wordLetter.value} status={wordLetter.status} wordsize={wordSize} />
+                        const selectedWordItems = wordWithUnknownsArray.map( (wordLetter, index) => (
+                            <WordLetter value={wordLetter.value} status={wordLetter.status} wordsize={wordSize} key={index} />
                         ))
                         return selectedWordItems;
                         }
