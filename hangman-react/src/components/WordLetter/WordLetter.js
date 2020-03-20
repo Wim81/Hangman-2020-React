@@ -36,6 +36,21 @@ const StyledWordLetter = styled.span`
       font-size: 2rem;
       width: 30px;
     }
+    
+    @media (max-width: 468px) {
+      font-size: 2rem;
+      width: 34px;
+      
+      &.medium {
+      font-size: 1.66rem;
+      width: 27px;
+    }
+    
+    &.large {
+      font-size: 1.33rem;
+      width: 20px;
+    }
+    }
 `;
 
 export default WordLetter;
