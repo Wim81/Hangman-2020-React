@@ -17,12 +17,13 @@ const StyledInPutLetter = styled.div`
     text-transform: uppercase;
     background-color: #666600;
     color: #dbaa16;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     border-top: 0px solid black;
     border-right: 3px solid black;
     border-bottom: 3px solid black;
     width: 14.28%;
     height: 25%;
+    padding-top: 0.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,6 +65,10 @@ const StyledInPutLetter = styled.div`
     &.clicked,
     &.gameover {
         pointer-events: none;
+    }
+    
+    @media (min-width: 420px) {
+        font-size: 2.5rem;
     }
 `;
 

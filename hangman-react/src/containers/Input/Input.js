@@ -48,6 +48,7 @@ const StyledInput = styled.div`
     flex-wrap: nowrap;
     
     .letters {
+        height: 66%;
         flex: 1 1 auto;
         margin: 0 5% 32px 5%;
         display: flex;
