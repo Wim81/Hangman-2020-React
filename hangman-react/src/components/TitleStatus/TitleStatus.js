@@ -35,18 +35,26 @@ class TitleStatus extends Component {
                         <StyledTitleStatus className={classes}>
                             <Transition
                                 in={this.props.mode1}
-                                timeout={2000}
-                                onEnter={() => console.log('entering')}
-                                onEntered={() => console.log('entered')}
-                                onExit={() => console.log('exiting')}
-                                onExited={() => console.log('exited')}>
+                                timeout={600}
+                                unmountOnExit >
                                 {state => (
-                                    <div className="titleStatus title_hangman"></div>
+                                    <div
+                                        className="titleStatus title_hangman"
+                                        style={{
+                                        transition: 'all 0.6s ease-in-out',
+                                        top: state === 'exiting' ? '-100%' :
+                                            state === 'entering' ? '100%' : '0%'
+                                        }}>
+                                    </div>
                                 )}
                             </Transition>
-                            <Transition in={this.props.mode2} timeout={2000}>
+                            <Transition
+                                in={this.props.mode2}
+                                timeout={600}>
                                 {state => (
-                                    <div className="titleStatus title_game_end"></div>
+                                    <div
+                                        className="titleStatus title_game_end">
+                                    </div>
                                 )}
                             </Transition>
                         </StyledTitleStatus>
@@ -58,7 +66,7 @@ class TitleStatus extends Component {
     }
 }
 
-/*const keyFramesMoveIn = keyframes`
+const keyFramesMoveIn = keyframes`
     0% { top: 100%; opacity: 1; }
     100% {top: 0%; opacity: 1;} 
 `;
@@ -69,7 +77,7 @@ const keyFramesMoveOut = keyframes`
     99% { top: -100%; opacity: 1; }
     100% {top: 100%; opacity: 1;} 
 `;
-*/
+
 const StyledTitleStatus = styled.div`
     width: 72%;
     height: 25%;
@@ -78,27 +86,28 @@ const StyledTitleStatus = styled.div`
     left: 14%;
     /*overflow: hidden;*/
 
+    /*
     &.show_title_hangman {
-        .title_hangman { opacity: 1; };
-        .title_game_end { opacity: 0; };
+        .title_hangman { animation: ${keyFramesMoveIn} 1s ease-in-out forwards; };
+        .title_game_end { animation: ${keyFramesMoveOut} 1s ease-in-out forwards; };
     }
     
     &.show_title_alright {
-        .title_hangman { opacity: 0; };
-        .title_game_end { opacity: 1; background-image: url(${title_alright}); };
+        .title_hangman { animation: ${keyFramesMoveOut} 1s ease-in-out forwards; };
+        .title_game_end { background-image: url(${title_alright}); animation: ${keyFramesMoveIn} 1s ease-in-out forwards; };
     }
     
     &.show_title_gameover {
-        .title_hangman { opacity: 0; };
-        .title_game_end { opacity: 1; background-image: url(${title_gameover}); };
-    }
+        .title_hangman { animation: ${keyFramesMoveOut} 1s ease-in-out forwards; };
+        .title_game_end { background-image: url(${title_gameover}); animation: ${keyFramesMoveIn} 1s ease-in-out forwards; };
+    }*/
 
     .titleStatus {
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
-        /*top: 100%;*/
+        top: 100%;
         height: 100%;
         width: 100%;
     }
