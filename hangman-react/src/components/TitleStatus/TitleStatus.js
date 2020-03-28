@@ -35,14 +35,17 @@ class TitleStatus extends Component {
                         <StyledTitleStatus className={classes}>
                             <Transition
                                 in={this.props.mode1}
-                                timeout={900}
+                                timeout={{
+                                    enter: 600,
+                                    exit: 900
+                                }}
                                 unmountOnExit >
                                 {state => (
                                     <div
                                         className="titleStatus title_hangman"
                                         style={{
                                             border: '3px solid blue',
-                                            transition: 'all 0.6s ease-in-out',
+                                            transition: 'top 0.6s ease-in-out',
                                             transitionDelay: state === 'exiting' ? '0.3s' : '0s',
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
@@ -53,7 +56,7 @@ class TitleStatus extends Component {
 
                             <Transition
                                 in={this.props.mode2 === "won"}
-                                timeout={0}
+                                timeout={600}
                                 unmountOnExit >
                                 {state => (
                                     <div
@@ -71,7 +74,7 @@ class TitleStatus extends Component {
 
                             <Transition
                                 in={this.props.mode2 === "lost"}
-                                timeout={0}
+                                timeout={600}
                                 unmountOnExit >
                                 {state => (
                                     <div
