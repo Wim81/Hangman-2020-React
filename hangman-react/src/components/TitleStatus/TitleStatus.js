@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HangmanContext } from '../../App';
 import styled, { keyframes } from 'styled-components';
+import { Transition } from 'react-transition-group';
 import title_hangman from '../../assets/title_hangman.png';
 import title_alright from '../../assets/title_alright.png';
 import title_gameover from '../../assets/title_gameover.png';
@@ -32,8 +33,16 @@ class TitleStatus extends Component {
 
                     return (
                         <StyledTitleStatus className={classes}>
-                            <div className="titleStatus title_hangman"></div>
-                            <div className="titleStatus title_game_end"></div>
+                            <Transition in={this.props.mode1} timeout={2000}>
+                                {state => (
+                                    <div className="titleStatus title_hangman"></div>
+                                )}
+                            </Transition>
+                            <Transition in={this.props.mode2} timeout={2000}>
+                                {state => (
+                                    <div className="titleStatus title_game_end"></div>
+                                )}
+                            </Transition>
                         </StyledTitleStatus>
                     );
                 }
@@ -43,7 +52,7 @@ class TitleStatus extends Component {
     }
 }
 
-const keyFramesMoveIn = keyframes`
+/*const keyFramesMoveIn = keyframes`
     0% { top: 100%; opacity: 1; }
     100% {top: 0%; opacity: 1;} 
 `;
@@ -54,7 +63,7 @@ const keyFramesMoveOut = keyframes`
     99% { top: -100%; opacity: 1; }
     100% {top: 100%; opacity: 1;} 
 `;
-
+*/
 const StyledTitleStatus = styled.div`
     width: 72%;
     height: 25%;
@@ -64,18 +73,18 @@ const StyledTitleStatus = styled.div`
     /*overflow: hidden;*/
 
     &.show_title_hangman {
-        .title_hangman { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
-        .title_game_end { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
+        .title_hangman { opacity: 1; };
+        .title_game_end { opacity: 0; };
     }
     
     &.show_title_alright {
-        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
-        .title_game_end { background-image: url(${title_alright}); animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
+        .title_hangman { opacity: 0; };
+        .title_game_end { opacity: 1; background-image: url(${title_alright}); };
     }
     
     &.show_title_gameover {
-        .title_hangman { animation: ${keyFramesMoveOut} 0.6s ease-in-out forwards; };
-        .title_game_end { background-image: url(${title_gameover}); animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
+        .title_hangman { opacity: 0; };
+        .title_game_end { opacity: 1; background-image: url(${title_gameover}); };
     }
 
     .titleStatus {
@@ -83,13 +92,13 @@ const StyledTitleStatus = styled.div`
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
-        top: 100%;
+        /*top: 100%;*/
         height: 100%;
         width: 100%;
     }
    
     .title_hangman { background-image: url(${title_hangman})};
-    .title_game_end { border: 5px solid lime }
+    .title_game_end { /*border: 5px solid lime*/ }
 `;
 
 export default TitleStatus;

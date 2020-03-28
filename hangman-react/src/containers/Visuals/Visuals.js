@@ -77,11 +77,13 @@ class Visuals extends Component {
                       const animationTrigger = context.state.gameStatus === 'init' ? 'yes' : 'no';
                       const toggleHelp = context.toggleHelpSection;
                       const helpButtonShown = context.state.gameStatus === "init";
+                      const transitionStatus1 = !context.state.gameOver;
+                      const transitionStatus2 = context.state.gameOver;
 
                   return(
                     <StyledVisuals>
                       <VisualsFrame />
-                      <TitleStatus />
+                      <TitleStatus mode1={transitionStatus1} mode2={transitionStatus2} />
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <HelpButton click={toggleHelp} show={helpButtonShown} />
