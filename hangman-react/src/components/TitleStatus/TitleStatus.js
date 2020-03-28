@@ -48,15 +48,41 @@ class TitleStatus extends Component {
                                     </div>
                                 )}
                             </Transition>
+
                             <Transition
-                                in={this.props.mode2}
-                                timeout={600}>
+                                in={this.props.mode2 === "won"}
+                                timeout={600}
+                                unmountOnExit >
                                 {state => (
                                     <div
-                                        className="titleStatus title_game_end">
+                                        className="titleStatus title_game_won"
+                                        style={{
+                                            transition: 'all 0.6s ease-in-out',
+                                            top: state === 'exiting' ? '-100%' :
+                                                state === 'entering' ? '100%' : '0%'
+                                        }}>
+                                        {context.state.gameOver}
                                     </div>
                                 )}
                             </Transition>
+
+                            <Transition
+                                in={this.props.mode2 === "lost"}
+                                timeout={600}
+                                unmountOnExit >
+                                {state => (
+                                    <div
+                                        className="titleStatus title_game_lost"
+                                        style={{
+                                            transition: 'all 0.6s ease-in-out',
+                                            top: state === 'exiting' ? '-100%' :
+                                                state === 'entering' ? '100%' : '0%'
+                                        }}>
+                                        {context.state.gameOver}
+                                    </div>
+                                )}
+                            </Transition>
+
                         </StyledTitleStatus>
                     );
                 }
@@ -66,7 +92,7 @@ class TitleStatus extends Component {
     }
 }
 
-const keyFramesMoveIn = keyframes`
+/*const keyFramesMoveIn = keyframes`
     0% { top: 100%; opacity: 1; }
     100% {top: 0%; opacity: 1;} 
 `;
@@ -76,7 +102,7 @@ const keyFramesMoveOut = keyframes`
     50% { top: 0%; opacity: 1; }
     99% { top: -100%; opacity: 1; }
     100% {top: 100%; opacity: 1;} 
-`;
+`;*/
 
 const StyledTitleStatus = styled.div`
     width: 72%;
@@ -84,24 +110,25 @@ const StyledTitleStatus = styled.div`
     position: absolute;
     top: 2%;
     left: 14%;
-    /*overflow: hidden;*/
+    overflow: hidden;
 
-    /*
-    &.show_title_hangman {
-        .title_hangman { animation: ${keyFramesMoveIn} 1s ease-in-out forwards; };
-        .title_game_end { animation: ${keyFramesMoveOut} 1s ease-in-out forwards; };
+    
+    /*&.show_title_hangman {
+        .title_hangman { animation: in 1s ease-in-out forwards; };
+        .title_game_end { animation: out 1s ease-in-out forwards; };
     }
     
     &.show_title_alright {
-        .title_hangman { animation: ${keyFramesMoveOut} 1s ease-in-out forwards; };
-        .title_game_end { background-image: url(${title_alright}); animation: ${keyFramesMoveIn} 1s ease-in-out forwards; };
+        .title_hangman { animation: out 1s ease-in-out forwards; };
+        .title_game_end { background-image: alr); animation: in 1s ease-in-out forwards; };
     }
     
     &.show_title_gameover {
-        .title_hangman { animation: ${keyFramesMoveOut} 1s ease-in-out forwards; };
-        .title_game_end { background-image: url(${title_gameover}); animation: ${keyFramesMoveIn} 1s ease-in-out forwards; };
+        .title_hangman { animation: out 1s ease-in-out forwards; };
+        .title_game_end { background-image: game; animation: in 1s ease-in-out forwards; };
     }*/
-
+    
+   
     .titleStatus {
         background-position: center;
         background-repeat: no-repeat;
@@ -113,7 +140,8 @@ const StyledTitleStatus = styled.div`
     }
    
     .title_hangman { background-image: url(${title_hangman})};
-    .title_game_end { /*border: 5px solid lime*/ }
+    .title_game_won { background-image: url(${title_alright})};
+    .title_game_lost { background-image: url(${title_gameover})};
 `;
 
 export default TitleStatus;

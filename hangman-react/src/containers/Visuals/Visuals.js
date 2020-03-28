@@ -78,7 +78,7 @@ class Visuals extends Component {
                       const toggleHelp = context.toggleHelpSection;
                       const helpButtonShown = context.state.gameStatus === "init";
                       const transitionStatus1 = !context.state.gameOver;
-                      const transitionStatus2 = context.state.gameOver;
+                      const transitionStatus2 = context.state.gameStatus;
 
                   return(
                     <StyledVisuals>
