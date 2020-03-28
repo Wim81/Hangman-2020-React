@@ -34,7 +34,6 @@ class TitleStatus extends Component {
                         <StyledTitleStatus className={classes}>
                             <div className="titleStatus title_hangman"></div>
                             <div className="titleStatus title_game_end"></div>
-
                         </StyledTitleStatus>
                     );
                 }
@@ -62,7 +61,7 @@ const StyledTitleStatus = styled.div`
     position: absolute;
     top: 2%;
     left: 14%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 
     &.show_title_hangman {
         .title_hangman { animation: ${keyFramesMoveIn} 0.6s ease-in-out forwards; };
@@ -90,6 +89,7 @@ const StyledTitleStatus = styled.div`
     }
    
     .title_hangman { background-image: url(${title_hangman})};
+    .title_game_end { border: 5px solid lime }
 `;
 
 export default TitleStatus;

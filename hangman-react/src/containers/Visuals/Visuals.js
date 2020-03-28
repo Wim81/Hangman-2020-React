@@ -14,24 +14,6 @@ class Visuals extends Component {
         return (
             <HangmanContext.Consumer>
                 {(context) => {
-                  const titleStatusInput = context.state.gameStatus;
-                  let titleStatusOutput = '';
-                  switch (titleStatusInput) {
-                      case 'init':
-                        titleStatusOutput = 'show_title_hangman';
-                        break;
-                      case 'in_progress':
-                        titleStatusOutput = 'show_title_hangman';
-                        break;
-                      case 'won':
-                        titleStatusOutput = 'show_title_alright'
-                        break;
-                      case 'lost':
-                        titleStatusOutput = 'show_title_gameover';
-                        break;
-                      default:
-                        return 'Something has gone wrong'
-                    };
                     const imageInput = context.state.wrongLetterCount;
                     let imageOutput = '';
                     switch (imageInput) {
@@ -99,7 +81,7 @@ class Visuals extends Component {
                   return(
                     <StyledVisuals>
                       <VisualsFrame />
-                      <TitleStatus image={titleStatusOutput} />
+                      <TitleStatus />
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <HelpButton click={toggleHelp} show={helpButtonShown} />

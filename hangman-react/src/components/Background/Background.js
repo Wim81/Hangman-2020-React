@@ -9,7 +9,6 @@ class Background extends Component {
         return (
             <HangmanContext.Consumer>
                 {(context) => {
-                    console.log(context.state.gameStatus);
                     let bgStatus = '';
                     switch (context.state.gameStatus) {
                         case 'init':
