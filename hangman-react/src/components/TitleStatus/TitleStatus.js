@@ -35,15 +35,17 @@ class TitleStatus extends Component {
                         <StyledTitleStatus className={classes}>
                             <Transition
                                 in={this.props.mode1}
-                                timeout={600}
+                                timeout={900}
                                 unmountOnExit >
                                 {state => (
                                     <div
                                         className="titleStatus title_hangman"
                                         style={{
-                                        transition: 'all 0.6s ease-in-out',
-                                        top: state === 'exiting' ? '-100%' :
-                                            state === 'entering' ? '100%' : '0%'
+                                            border: '3px solid blue',
+                                            transition: 'all 0.6s ease-in-out',
+                                            transitionDelay: state === 'exiting' ? '0.3s' : '0s',
+                                            top: state === 'exiting' ? '-100%' :
+                                                state === 'entering' ? '100%' : '0%'
                                         }}>
                                     </div>
                                 )}
@@ -51,12 +53,13 @@ class TitleStatus extends Component {
 
                             <Transition
                                 in={this.props.mode2 === "won"}
-                                timeout={600}
+                                timeout={0}
                                 unmountOnExit >
                                 {state => (
                                     <div
                                         className="titleStatus title_game_won"
                                         style={{
+                                            border: '3px solid green',
                                             transition: 'all 0.6s ease-in-out',
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
@@ -68,12 +71,13 @@ class TitleStatus extends Component {
 
                             <Transition
                                 in={this.props.mode2 === "lost"}
-                                timeout={600}
+                                timeout={0}
                                 unmountOnExit >
                                 {state => (
                                     <div
                                         className="titleStatus title_game_lost"
                                         style={{
+                                            border: '3px solid red',
                                             transition: 'all 0.6s ease-in-out',
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
@@ -92,42 +96,13 @@ class TitleStatus extends Component {
     }
 }
 
-/*const keyFramesMoveIn = keyframes`
-    0% { top: 100%; opacity: 1; }
-    100% {top: 0%; opacity: 1;} 
-`;
-
-const keyFramesMoveOut = keyframes`
-    0% { top: 0%; opacity: 1; }
-    50% { top: 0%; opacity: 1; }
-    99% { top: -100%; opacity: 1; }
-    100% {top: 100%; opacity: 1;} 
-`;*/
-
 const StyledTitleStatus = styled.div`
     width: 72%;
     height: 25%;
     position: absolute;
     top: 2%;
     left: 14%;
-    overflow: hidden;
-
-    
-    /*&.show_title_hangman {
-        .title_hangman { animation: in 1s ease-in-out forwards; };
-        .title_game_end { animation: out 1s ease-in-out forwards; };
-    }
-    
-    &.show_title_alright {
-        .title_hangman { animation: out 1s ease-in-out forwards; };
-        .title_game_end { background-image: alr); animation: in 1s ease-in-out forwards; };
-    }
-    
-    &.show_title_gameover {
-        .title_hangman { animation: out 1s ease-in-out forwards; };
-        .title_game_end { background-image: game; animation: in 1s ease-in-out forwards; };
-    }*/
-    
+    /*overflow: hidden;*/    
    
     .titleStatus {
         background-position: center;
