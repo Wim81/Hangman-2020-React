@@ -33,7 +33,13 @@ class TitleStatus extends Component {
 
                     return (
                         <StyledTitleStatus className={classes}>
-                            <Transition in={this.props.mode1} timeout={2000}>
+                            <Transition
+                                in={this.props.mode1}
+                                timeout={2000}
+                                onEnter={() => console.log('entering')}
+                                onEntered={() => console.log('entered')}
+                                onExit={() => console.log('exiting')}
+                                onExited={() => console.log('exited')}>
                                 {state => (
                                     <div className="titleStatus title_hangman"></div>
                                 )}
