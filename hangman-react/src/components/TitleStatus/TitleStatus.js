@@ -36,10 +36,7 @@ class TitleStatus extends Component {
                             <CSSTransition
                                 classNames='title'
                                 in={this.props.mode1}
-                                timeout={{
-                                    enter: 600,
-                                    exit: 600,
-                                }}
+                                timeout={600}
                                 unmountOnExit >
                                 {state => (
                                     <div
@@ -55,10 +52,7 @@ class TitleStatus extends Component {
                             <CSSTransition
                                 classNames='won'
                                 in={this.props.mode2 === "won"}
-                                timeout={{
-                                    enter: 600,
-                                    exit: 600,
-                                }}
+                                timeout={600}
                                 unmountOnExit >
                                 {state => (
                                     <div
@@ -76,10 +70,7 @@ class TitleStatus extends Component {
                             <CSSTransition
                                 classNames='lost'
                                 in={this.props.mode2 === "lost"}
-                                timeout={{
-                                    enter: 600,
-                                    exit: 600,
-                                }}
+                                timeout={600}
                                 unmountOnExit >
                                 {state => (
                                     <div
