@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 class Background extends Component {
 
-
     render() {
         return (
             <HangmanContext.Consumer>
@@ -27,15 +26,12 @@ class Background extends Component {
                             return 'Something has gone wrong'
                     };
 
-
-
                     return(
-
-                    <StyledBackground className={bgStatus}>
-                        <div className="bg lost"></div>
-                        <div className="bg won"></div>
-                        <div className="bg default"></div>
-                    </StyledBackground>
+                        <StyledBackground className={bgStatus}>
+                            <div className="bg lost"></div>
+                            <div className="bg won"></div>
+                            <div className="bg default"></div>
+                        </StyledBackground>
                     )}
                 }
             </HangmanContext.Consumer>

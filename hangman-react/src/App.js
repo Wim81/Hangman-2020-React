@@ -70,7 +70,6 @@ class HangmanProvider extends Component {
     componentDidUpdate() {
       let selectedWordArray = this.state.selectedWord.split('');
       let selectedWordArrayLength = selectedWordArray.length;
-      console.log(selectedWordArray);
       let checkLetterStatus = [];
       selectedWordArray.forEach(letter => {
         let status= this.state.letters.find(x => x.value === letter).status;
@@ -97,7 +96,7 @@ class HangmanProvider extends Component {
                 initAll: () => {
                     const startArray = [];
                     let allLetters = this.state.letters;
-                    var resetLetters = allLetters.map((letter) => {
+                    let resetLetters = allLetters.map((letter) => {
                         startArray.push({
                             value: letter.value,
                             status: 'init'

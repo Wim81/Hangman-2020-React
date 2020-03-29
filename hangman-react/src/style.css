@@ -1,6 +1,5 @@
 body {
     background-color: olive;
-    /*background: linear-gradient(#000000, olive 100%);*/
     background-image: url('./assets/bg-1200.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,5 +12,4 @@ body {
 
 #root {
     box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
-
 }

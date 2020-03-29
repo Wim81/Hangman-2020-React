@@ -14,7 +14,6 @@ class Input extends Component {
                     <HangmanContext.Consumer>
                         {(context) => {
                             const letters = context.state.letters;
-                            // console.log(letters);
                             const allLetters = letters.map( letter => (
                                 <InputLetter
                                     key={letter.value}
@@ -23,7 +22,6 @@ class Input extends Component {
                                     gameOver={context.state.gameOver}
                                     click={() => context.handleInputLetterClick(letter.value)} />
                             ))
-                            // console.log(allLetters);
                             return allLetters;
                             }
                         }

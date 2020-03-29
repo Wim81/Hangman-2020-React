@@ -7,7 +7,6 @@ import errors_left_3 from '../../assets/errors_left_3.png';
 import errors_left_4 from '../../assets/errors_left_4.png';
 import errors_left_5 from '../../assets/errors_left_5.png';
 
-
 const ErrorStatus = (props) => {
     let errorStatus = props.value;
     let classes = null;
