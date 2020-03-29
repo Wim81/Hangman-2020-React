@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HangmanContext } from '../../App';
 import styled, { keyframes } from 'styled-components';
-import { Transition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import title_hangman from '../../assets/title_hangman.png';
 import title_alright from '../../assets/title_alright.png';
 import title_gameover from '../../assets/title_gameover.png';
@@ -33,10 +33,11 @@ class TitleStatus extends Component {
 
                     return (
                         <StyledTitleStatus className={classes}>
-                            <Transition
+                            <CSSTransition
+                                classNames='title'
                                 in={this.props.mode1}
                                 timeout={{
-                                    enter: 0,
+                                    enter: 600,
                                     exit: 600,
                                 }}
                                 unmountOnExit >
@@ -45,16 +46,14 @@ class TitleStatus extends Component {
                                         className="titleStatus title_hangman"
                                         style={{
                                             border: '3px solid blue',
-                                            transition: 'top 0.6s ease-in-out',
-                                            /*transitionDelay: state === 'exiting' ? '0.3s' : '0s',*/
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
                                         }}>
                                     </div>
                                 )}
-                            </Transition>
+                            </CSSTransition>
 
-                            <Transition
+                            <CSSTransition
                                 in={this.props.mode2 === "won"}
                                 timeout={{
                                     enter: 0,
@@ -73,9 +72,9 @@ class TitleStatus extends Component {
                                         {context.state.gameOver}
                                     </div>
                                 )}
-                            </Transition>
+                            </CSSTransition>
 
-                            <Transition
+                            <CSSTransition
                                 in={this.props.mode2 === "lost"}
                                 timeout={{
                                     enter: 0,
@@ -94,7 +93,7 @@ class TitleStatus extends Component {
                                         {context.state.gameOver}
                                     </div>
                                 )}
-                            </Transition>
+                            </CSSTransition>
 
                         </StyledTitleStatus>
                     );
@@ -105,14 +104,26 @@ class TitleStatus extends Component {
     }
 }
 
+const keyFramesMoveIn = keyframes`
+    0% { top: 100%; opacity: 1; }
+    100% {top: 0%; opacity: 1;}
+`;
+
+const keyFramesMoveOut = keyframes`
+    0% { top: 0%; opacity: 1; }
+    50% { top: 0%; opacity: 1; }
+    99% { top: -100%; opacity: 1; }
+    100% {top: 100%; opacity: 1;}
+`;
+
 const StyledTitleStatus = styled.div`
     width: 72%;
     height: 25%;
     position: absolute;
     top: 2%;
     left: 14%;
-    /*overflow: hidden;*/    
-   
+    /*overflow: hidden;*/  
+    
     .titleStatus {
         background-position: center;
         background-repeat: no-repeat;
@@ -121,6 +132,14 @@ const StyledTitleStatus = styled.div`
         top: 100%;
         height: 100%;
         width: 100%;
+    }
+    
+    .title-enter {
+        animation: ${keyFramesMoveIn} 0.6s forwards;
+    }
+    
+    .title-exit {
+        animation: ${keyFramesMoveOut} 0.6s forwards;
     }
    
     .title_hangman { background-image: url(${title_hangman})};
