@@ -54,9 +54,10 @@ class TitleStatus extends Component {
                             </CSSTransition>
 
                             <CSSTransition
+                                classNames='won'
                                 in={this.props.mode2 === "won"}
                                 timeout={{
-                                    enter: 0,
+                                    enter: 600,
                                     exit: 600,
                                 }}
                                 unmountOnExit >
@@ -75,9 +76,10 @@ class TitleStatus extends Component {
                             </CSSTransition>
 
                             <CSSTransition
+                                classNames='lost'
                                 in={this.props.mode2 === "lost"}
                                 timeout={{
-                                    enter: 0,
+                                    enter: 600,
                                     exit: 600,
                                 }}
                                 unmountOnExit >
@@ -105,7 +107,8 @@ class TitleStatus extends Component {
 }
 
 const keyFramesMoveIn = keyframes`
-    0% { top: 100%; opacity: 1; }
+    0% { top: 100%; opacity: 0; }
+    1% { top: 99%; opacity: 1; }
     100% {top: 0%; opacity: 1;}
 `;
 
@@ -113,7 +116,7 @@ const keyFramesMoveOut = keyframes`
     0% { top: 0%; opacity: 1; }
     50% { top: 0%; opacity: 1; }
     99% { top: -100%; opacity: 1; }
-    100% {top: 100%; opacity: 1;}
+    100% {top: -100%; opacity: 0;}
 `;
 
 const StyledTitleStatus = styled.div`
@@ -134,11 +137,15 @@ const StyledTitleStatus = styled.div`
         width: 100%;
     }
     
-    .title-enter {
+    .title-enter,
+    .won-enter,
+    .lost-enter {
         animation: ${keyFramesMoveIn} 0.6s forwards;
     }
     
-    .title-exit {
+    .title-exit,
+    .won-exit,
+    .lost-exit {
         animation: ${keyFramesMoveOut} 0.6s forwards;
     }
    
