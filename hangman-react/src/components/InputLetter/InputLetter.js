@@ -67,7 +67,7 @@ const StyledInPutLetter = styled.div`
         pointer-events: none;
     }
     
-    @media (min-width: 420px) {
+    @media (min-width: 420px) and (min-height: 840px) {
         font-size: 2.5rem;
     }
 `;

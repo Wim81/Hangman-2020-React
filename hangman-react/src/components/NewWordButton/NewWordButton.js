@@ -30,7 +30,7 @@ const StyledNewWordButton = styled.div`
       background-color: rgba(25, 89, 4, 1);
     }
     
-    @media (min-width: 420px) {
+    @media (min-width: 420px) and (min-height: 840px) {
         font-size: 3rem;
     }
 `;

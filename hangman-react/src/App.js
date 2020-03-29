@@ -170,10 +170,10 @@ const StyledApp = styled.div`
   text-align: center;
   width: 100vw;
   min-width: 300px;
-  max-width: 472px;
+  max-width: 53.33vh;
   height: 187.5vw;
   min-height: 562.5px;
-  max-height: 885px;
+  max-height: 95vh;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
