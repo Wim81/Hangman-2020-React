@@ -1,6 +1,10 @@
 body {
     background-color: olive;
     /*background: linear-gradient(#000000, olive 100%);*/
+    background-image: url('./assets/bg-1200.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left top;
     height: 100vh;
     display: flex;
     align-items: center;
