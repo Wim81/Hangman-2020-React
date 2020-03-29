@@ -45,7 +45,6 @@ class TitleStatus extends Component {
                                     <div
                                         className="titleStatus title_hangman"
                                         style={{
-                                            border: '3px solid blue',
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
                                         }}>
@@ -65,7 +64,6 @@ class TitleStatus extends Component {
                                     <div
                                         className="titleStatus title_game_won"
                                         style={{
-                                            border: '3px solid green',
                                             transition: 'all 0.6s ease-in-out',
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
@@ -87,7 +85,6 @@ class TitleStatus extends Component {
                                     <div
                                         className="titleStatus title_game_lost"
                                         style={{
-                                            border: '3px solid red',
                                             transition: 'all 0.6s ease-in-out',
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
@@ -114,7 +111,7 @@ const keyFramesMoveIn = keyframes`
 
 const keyFramesMoveOut = keyframes`
     0% { top: 0%; opacity: 1; }
-    50% { top: 0%; opacity: 1; }
+    30% { top: 0%; opacity: 1; }
     99% { top: -100%; opacity: 1; }
     100% {top: -100%; opacity: 0;}
 `;
