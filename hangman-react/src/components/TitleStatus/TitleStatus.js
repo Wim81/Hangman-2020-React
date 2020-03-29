@@ -36,8 +36,8 @@ class TitleStatus extends Component {
                             <Transition
                                 in={this.props.mode1}
                                 timeout={{
-                                    enter: 600,
-                                    exit: 900
+                                    enter: 0,
+                                    exit: 600,
                                 }}
                                 unmountOnExit >
                                 {state => (
@@ -46,7 +46,7 @@ class TitleStatus extends Component {
                                         style={{
                                             border: '3px solid blue',
                                             transition: 'top 0.6s ease-in-out',
-                                            transitionDelay: state === 'exiting' ? '0.3s' : '0s',
+                                            /*transitionDelay: state === 'exiting' ? '0.3s' : '0s',*/
                                             top: state === 'exiting' ? '-100%' :
                                                 state === 'entering' ? '100%' : '0%'
                                         }}>
@@ -56,7 +56,10 @@ class TitleStatus extends Component {
 
                             <Transition
                                 in={this.props.mode2 === "won"}
-                                timeout={600}
+                                timeout={{
+                                    enter: 0,
+                                    exit: 600,
+                                }}
                                 unmountOnExit >
                                 {state => (
                                     <div
@@ -74,7 +77,10 @@ class TitleStatus extends Component {
 
                             <Transition
                                 in={this.props.mode2 === "lost"}
-                                timeout={600}
+                                timeout={{
+                                    enter: 0,
+                                    exit: 600,
+                                }}
                                 unmountOnExit >
                                 {state => (
                                     <div
