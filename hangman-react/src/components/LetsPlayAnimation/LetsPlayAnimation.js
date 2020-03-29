@@ -1,10 +1,24 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
 import letsplay from '../../assets/letsplay.png';
 
 const LetsPlayAnimation = (props) => {
   return(
-      <StyledLetsPlayAnimation className={props.trigger}></StyledLetsPlayAnimation>
+  <CSSTransition
+    classNames='play'
+    in={props.trigger === "yes"}
+    timeout={{
+      enter: 3000,
+      exit: 0
+    }}
+    unmountOnExit >
+      {state => (
+          <StyledLetsPlayAnimation
+              className={props.trigger}>
+          </StyledLetsPlayAnimation>
+      )}
+  </CSSTransition>
   );
 }
 
@@ -27,6 +41,11 @@ const StyledLetsPlayAnimation  = styled.div`
     opacity: 0;
     animation-name: ${letsPlayAnimation};
     animation-duration: 3s;
+    
+    &.play-enter {
+      animation-name: ${letsPlayAnimation};
+      animation-duration: 3s;
+    }
 `;
 
 export default LetsPlayAnimation;
