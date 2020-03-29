@@ -122,10 +122,10 @@ const StyledTitleStatus = styled.div`
     position: absolute;
     top: 2%;
     left: 14%;
-    /*overflow: hidden;*/  
+    overflow: hidden;
     
     .titleStatus {
-        background-position: center;
+        background-position: center top;
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
