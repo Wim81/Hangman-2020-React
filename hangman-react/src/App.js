@@ -13,6 +13,7 @@ class HangmanProvider extends Component {
     state = {
         gameOver: false,                        // boolean
         gameStatus: 'init',                     // init / in_progress / won / loss
+        playAnim: 'init',                       // init / reset
         letters: [
             { value: 'a', status: 'init' },      // init / hit / miss
             { value: 'b', status: 'init' },
@@ -59,6 +60,11 @@ class HangmanProvider extends Component {
             .catch(error => {
                 console.log("foutje");
             });
+        if (this.state.playAnim === 'init') {
+            setTimeout(()=> {
+                this.setState({playAnim: 'reset'});
+            }, 3000)
+        }
     }
 
     componentDidUpdate() {
@@ -77,6 +83,11 @@ class HangmanProvider extends Component {
             gameStatus: 'won'
         });
       }
+        if (this.state.playAnim === 'init') {
+            setTimeout(()=> {
+                this.setState({playAnim: 'reset'});
+            }, 3000)
+        }
     }
 
     render() {
@@ -98,6 +109,7 @@ class HangmanProvider extends Component {
                             this.setState((prevState, props) => ({
                                 gameOver: false,
                                 gameStatus: 'init',
+                                playAnim: 'init',
                                 letters: startArray,
                                 wrongLetterCount: 0,
                                 selectedWord: response.data.word,

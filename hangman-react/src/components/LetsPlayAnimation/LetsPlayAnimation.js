@@ -7,15 +7,16 @@ const LetsPlayAnimation = (props) => {
   return(
   <CSSTransition
     classNames='play'
-    in={props.trigger === "yes"}
+    in={props.trigger === "yes" && props.reset === "no"}
     timeout={{
       enter: 3000,
       exit: 0
     }}
+    mountOnEnter
     unmountOnExit >
       {state => (
           <StyledLetsPlayAnimation
-              className={props.trigger}>
+              className={props.trigger} >
           </StyledLetsPlayAnimation>
       )}
   </CSSTransition>

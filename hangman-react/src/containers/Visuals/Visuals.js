@@ -75,6 +75,7 @@ class Visuals extends Component {
                           return 'Something has gone wrong'
                       };
                       const animationTrigger = context.state.gameStatus === 'init' ? 'yes' : 'no';
+                      const playAnimReset = context.state.playAnim === 'init' ? 'no' : 'yes';
                       const toggleHelp = context.toggleHelpSection;
                       const helpButtonShown = context.state.gameStatus === "init";
                       const transitionStatus1 = !context.state.gameOver;
@@ -87,7 +88,7 @@ class Visuals extends Component {
                       <StatusImage image={imageOutput} />
                       <ErrorStatus value={errorStatusOutput} />
                       <HelpButton click={toggleHelp} show={helpButtonShown} />
-                      <LetsPlayAnimation trigger={animationTrigger} />
+                      <LetsPlayAnimation trigger={animationTrigger} reset={playAnimReset} />
                     </StyledVisuals>
                   )}
                 }
