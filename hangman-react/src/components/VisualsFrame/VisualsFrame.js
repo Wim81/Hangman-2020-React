@@ -30,7 +30,7 @@ const StyledVisualFrame = styled.div`
     width: 8.33%;
     height: 0;
     padding-top: 11%;
-    left: 3.75%;
+    left: 4.25%;
     overflow: hidden;
 }
 
@@ -46,12 +46,12 @@ const StyledVisualFrame = styled.div`
 
 .corner2 {
     position: absolute;
-    right: 4%;    
+    right: 4.5%;    
     width: 8.33%;
     height: 0;
     padding-top: 2.75%;
     padding-bottom: 8.25%;
-    padding-right: 3.75%;
+    padding-right: 4.25%;
     overflow: hidden;
 }
 
@@ -69,7 +69,7 @@ const StyledVisualFrame = styled.div`
     width: 5.83%;
     height: 0;
     top: 86.75%;
-    padding-left: 12.5%;
+    padding-left: 12.75%;
     padding-top: 8.75%;
     overflow: hidden;
 }
@@ -89,8 +89,8 @@ const StyledVisualFrame = styled.div`
     position: absolute;
     width: 5.83%;
     height: 0;
-    top: 86.5%;
-    right: 4.4%;
+    top: 86.75%;
+    right: 4.5%;
     padding-bottom: 12%;
     padding-left: 8.75%;
     overflow: hidden;
