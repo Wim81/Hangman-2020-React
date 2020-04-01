@@ -172,13 +172,17 @@ const StyledApp = styled.div`
   max-width: 53.33vh;
   height: 187.5vw;
   min-height: 562.5px;
-  max-height: 95vh;
+  max-height: 100vh;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
   
   * {
     box-sizing: border-box;
+  }
+  
+  @media (min-width: 480px) {
+    max-height: 95vh;
   }
 `;
 
